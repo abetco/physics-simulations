@@ -9,6 +9,7 @@ Because it's hard to gauge exactly how much time each physics simulation will ta
 * Relativity
 * Particle Physics
 * Fluid Physics  
+  
 In this way, the complexity is flexible. I would gander that the more advanced topics in physics would require more complexity.  
 **Library**  
 For the basic framework, my idea is to use the [newton dynamics](https://github.com/MADEAPPS/newton-dynamics) library in order to help with the mechanics simulations. Although many physics libraries are designed with game physics in mind, they can also be applied in the manner that I intend to use them in. Although I believe that I might be able to mathematically build the foundation for each of the simulations, applying this library as the infrastructure would most likely be more efficient and yield more substantial results. In addition, it would allow me more time to move on to the other topics within physics as described above.  
