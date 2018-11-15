@@ -22,7 +22,8 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		ofParameter<float> x_vel, y_vel, radius;
+		ofTrueTypeFont font;
+		ofParameter<float> x_vel1, y_vel1, radius1, x_vel2, y_vel2, radius2;
 		ofxPanel gui;
 		ofParameterGroup parameters;
 		ofPolyline                              drawing;         // we draw with this first

@@ -1,24 +1,28 @@
 #include "ofApp.h"
 //--------------------------------------------------------------
 void ofApp::setup(){
+	font.loadFont("verdana.ttf", 30);
 	box2d.init();
 	box2d.setGravity(0, 10);
 	box2d.createGround();
 	box2d.setFPS(60.0);
 	parameters.setName("parameters");
-	parameters.add(x_vel.set("X Velocity", 10, 1, 100));
-	parameters.add(y_vel.set("Y Velocity", -10, -100, -1));
-	parameters.add(radius.set("radius", 15, 10, 100));
+	parameters.add(x_vel1.set("X Velocity Ball 1", 10, 1, 100));
+	parameters.add(y_vel1.set("Y Velocity Ball 1", -10, -1, -100));
+	parameters.add(x_vel2.set("X Velocity Ball 2", -10, -1, -100));
+	parameters.add(y_vel2.set("Y Velocity Ball 2", -10, -1, -100));
+	parameters.add(radius1.set("Radius Ball 1", 15, 10, 100));
+	parameters.add(radius2.set("Radius Ball 2", 15, 10, 100));
 	gui.setup(parameters);
 	auto circle = std::make_shared<ofxBox2dCircle>();
 	circle.get()->setPhysics(3.0, 0.53, 0.9);
-	circle.get()->setup(box2d.getWorld(), radius , ofGetHeight() - radius, radius);
-	circle.get()->setVelocity(x_vel, y_vel);
+	circle.get()->setup(box2d.getWorld(), radius1, ofGetHeight() - radius1, radius1);
+	circle.get()->setVelocity(x_vel1, y_vel1);
 	circles.push_back(circle);
 	circle = std::make_shared<ofxBox2dCircle>();
 	circle.get()->setPhysics(3.9, 0.53, 0.9);
-	circle.get()->setup(box2d.getWorld(), ofGetWidth() / 2, ofGetHeight() / 2, radius);
-	circle.get()->setVelocity(-3.0, -10.0);
+	circle.get()->setup(box2d.getWorld(), ofGetWidth() - radius2, ofGetHeight() - radius2, radius2);
+	circle.get()->setVelocity(x_vel2, y_vel2);
 	circles.push_back(circle);
 
 }
@@ -40,9 +44,13 @@ void ofApp::draw(){
 	box2d.drawGround();
 
 	string info = "";
+	info += "Use the sliders to adjust the parameters!\n";
 	info += "Press [r] to reset!\n";
 	ofSetHexColor(0x444342);
-	ofDrawBitmapString(info, 10, 100);
+	ofDrawBitmapString(info, 10, ofGetHeight() / 3);
+
+	string title = "Simulation of Two Balls";
+	ofDrawBitmapString(title, ofGetWidth() / 2, 10);
 }
 
 //--------------------------------------------------------------
@@ -65,16 +73,17 @@ void ofApp::keyPressed(int key){
 	//}
 
 	//if (key == 't') ofToggleFullscreen();
-	ofVec2f pos_reset1(radius, ofGetHeight() - radius);
-	ofVec2f vel_reset1(x_vel, y_vel);
-	ofVec2f pos_reset2(ofGetWidth() / 2, ofGetHeight() / 2);
-	ofVec2f vel_reset2(-3, -10);
+	ofVec2f pos_reset1(radius1, ofGetHeight() - radius1);
+	ofVec2f vel_reset1(x_vel1, y_vel1);
+	ofVec2f pos_reset2(ofGetWidth() - radius2, ofGetHeight() - radius2);
+	ofVec2f vel_reset2(x_vel2, y_vel2);
 	if (key == 'r') {
 		circles[0].get()->setPosition(pos_reset1);
 		circles[0].get()->setVelocity(vel_reset1);
-		circles[0].get()->setRadius(radius);
+		circles[0].get()->setRadius(radius1);
 		circles[1].get()->setPosition(pos_reset2);
 		circles[1].get()->setVelocity(vel_reset2);
+		circles[1].get()->setRadius(radius2);
 	}
 }
 
