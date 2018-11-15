@@ -7,44 +7,19 @@ void ofApp::setup(){
 	box2d.setGravity(0, 10);
 	box2d.createGround();
 	box2d.setFPS(60.0);
-	//box2d.registerGrabbing();
-	//for (int i = 0; i < nPts; i += 2) {
-	//	float x = pts[i];
-	//	float y = pts[i + 1];
-	//	edgeLine.addVertex(x, y);
-	//}
-
-	//// make the shape
-	//edgeLine.setPhysics(0.0, 0.5, 0.5);
-	//edgeLine.create(box2d.getWorld());
-	//ofSetVerticalSync(true);
-	//ofBackgroundHex(0xfdefc2);
-	//ofSetLogLevel(OF_LOG_NOTICE);
-	//ofDisableAntiAliasing();
-	//for (int i = 0; i < 100; i++) {
-
-	//	float r = ofRandom(10, 20);
-	//	auto circle = std::make_shared<ofxBox2dCircle>();
-	//	circle.get()->setPhysics(3.0, 0.53, 0.9);
-	//	circle.get()->setup(box2d.getWorld(), ofGetWidth() / 2, ofGetHeight() / 2, r);
-	//	circles.push_back(circle);
-
-	//	/*float w = ofRandom(4, 20);
-	//	float h = ofRandom(4, 20);
-	//	auto rect = std::make_shared<ofxBox2dRect>();
-	//	rect.get()->setPhysics(3.0, 0.53, 0.9);
-	//	rect.get()->setup(box2d.getWorld(), ofGetWidth() / 2, ofGetHeight() / 2, w, h);
-	//	boxes.push_back(rect);*/
-	//}
-	float r = ofRandom(10, 20);
+	parameters.setName("parameters");
+	parameters.add(x_vel.set("X Velocity", 10, 1, 100));
+	parameters.add(y_vel.set("Y Velocity", -10, -100, -1));
+	parameters.add(radius.set("radius", 15, 10, 100));
+	gui.setup(parameters);
 	auto circle = std::make_shared<ofxBox2dCircle>();
 	circle.get()->setPhysics(3.0, 0.53, 0.9);
-	circle.get()->setup(box2d.getWorld(), r , ofGetHeight() - r, r);
-	circle.get()->setVelocity(3.0, -10.0);
+	circle.get()->setup(box2d.getWorld(), radius , ofGetHeight() - radius, radius);
+	circle.get()->setVelocity(x_vel, y_vel);
 	circles.push_back(circle);
 	circle = std::make_shared<ofxBox2dCircle>();
 	circle.get()->setPhysics(3.9, 0.53, 0.9);
-	circle.get()->setup(box2d.getWorld(), ofGetWidth() / 2, ofGetHeight() / 2, r);
+	circle.get()->setup(box2d.getWorld(), ofGetWidth() / 2, ofGetHeight() / 2, radius);
 	circle.get()->setVelocity(-3.0, -10.0);
 	circles.push_back(circle);
 
@@ -53,52 +28,16 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	box2d.update();
-	/*ofVec2f mouse(ofGetMouseX(), ofGetMouseY());
-	float minDis = ofGetMousePressed() ? 300 : 200;
-
-	for (int i = 0; i < circles.size(); i++) {
-		float dis = mouse.distance(circles[i].get()->getPosition());
-		if (dis < minDis) circles[i].get()->addRepulsionForce(mouse, 9);
-		else circles[i].get()->addAttractionPoint(mouse, 4.0);
-
-
-	}
-	for (int i = 0; i < boxes.size(); i++) {
-		float dis = mouse.distance(boxes[i].get()->getPosition());
-		if (dis < minDis) boxes[i].get()->addRepulsionForce(mouse, 9);
-		else boxes[i].get()->addAttractionPoint(mouse, 4.0);
-	}*/
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	//string message = "Hi whats up!";
-	//ofSetColor(0, 0, 0);
-	///*ofDrawBitmapString(message, ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);*/
-	//float time = ofGetElapsedTimeMillis() / 100;
-	//message = std::to_string(time);
-	//ofDrawBitmapString(message, ofGetWindowWidth() / 2, ofGetWindowHeight() / 2);
-	//ofDrawCircle(150, 150 + time, 100);
-	//
-	//ofNoFill();
-	//ofSetHexColor(0x444342);
-	//if(drawing.size()==0) {
-	//	edgeLine.updateShape();
-	//	edgeLine.draw();
-	//}
-	//else drawing.draw();
+	gui.draw();
 	for (int i = 0; i < circles.size(); i++) {
 		ofFill();
 		ofSetHexColor(0xf6c738);
 		circles[i].get()->draw();
 	}
-
-	//for (int i = 0; i < boxes.size(); i++) {
-	//	ofFill();
-	//	ofSetHexColor(0xBF2545);
-	//	boxes[i].get()->draw();
-	//}
-
 	// draw the ground
 	box2d.drawGround();
 
@@ -132,12 +71,16 @@ void ofApp::keyPressed(int key){
 	//}
 
 	//if (key == 't') ofToggleFullscreen();
-	float r = circles[0].get()->getRadius();
-	ofVec2f pos_reset(r, ofGetHeight() - r);
-	ofVec2f vel_reset(3, -10);
+	ofVec2f pos_reset1(radius, ofGetHeight() - radius);
+	ofVec2f vel_reset1(x_vel, y_vel);
+	ofVec2f pos_reset2(ofGetWidth() / 2, ofGetHeight() / 2);
+	ofVec2f vel_reset2(-3, -10);
 	if (key == 'r') {
-		circles[0].get()->setPosition(pos_reset);
-		circles[0].get()->setVelocity(vel_reset);
+		circles[0].get()->setPosition(pos_reset1);
+		circles[0].get()->setVelocity(vel_reset1);
+		circles[0].get()->setRadius(radius);
+		circles[1].get()->setPosition(pos_reset2);
+		circles[1].get()->setVelocity(vel_reset2);
 	}
 }
 

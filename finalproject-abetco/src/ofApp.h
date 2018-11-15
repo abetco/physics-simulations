@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxBox2d.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,7 +22,9 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		float xpos, ypos;
+		ofParameter<float> x_vel, y_vel, radius;
+		ofxPanel gui;
+		ofParameterGroup parameters;
 		ofPolyline                              drawing;         // we draw with this first
 		ofxBox2d                                 box2d;   // the box2d world
 		vector     <shared_ptr<ofxBox2dCircle> > circles; // default box2d circles
