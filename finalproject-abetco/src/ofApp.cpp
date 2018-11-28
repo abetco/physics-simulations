@@ -1,7 +1,6 @@
 #include "ofApp.h"
 //--------------------------------------------------------------
 void ofApp::setup(){
-	font.loadFont("verdana.ttf", 30);
 	box2d.init();
 	box2d.setGravity(0, 10);
 	box2d.createGround();
@@ -20,7 +19,7 @@ void ofApp::setup(){
 	circle.get()->setVelocity(x_vel1, y_vel1);
 	circles.push_back(circle);
 	circle = std::make_shared<ofxBox2dCircle>();
-	circle.get()->setPhysics(3.9, 0.53, 0.9);
+	circle.get()->setPhysics(3.0, 0.53, 0.9);
 	circle.get()->setup(box2d.getWorld(), ofGetWidth() - radius2, ofGetHeight() - radius2, radius2);
 	circle.get()->setVelocity(x_vel2, y_vel2);
 	circles.push_back(circle);
@@ -40,7 +39,7 @@ void ofApp::draw(){
 		ofSetHexColor(0xf6c738);
 		circles[i].get()->draw();
 	}
-	// draw the ground
+
 	box2d.drawGround();
 
 	string info = "";
@@ -50,7 +49,7 @@ void ofApp::draw(){
 	ofDrawBitmapString(info, 10, ofGetHeight() / 3);
 
 	string title = "Simulation of Two Balls";
-	ofDrawBitmapString(title, ofGetWidth() / 2, 10);
+	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
 }
 
 //--------------------------------------------------------------

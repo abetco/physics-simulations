@@ -1,4 +1,4 @@
-ofxBox2d-master
 ofxGui
 ofxUnitTests
 ofxVectorGraphics
+ofxBox2d-master
