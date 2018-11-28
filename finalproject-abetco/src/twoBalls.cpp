@@ -1,0 +1,53 @@
+#include "twoBalls.h"
+
+twoBalls::twoBalls() {
+}
+
+void twoBalls::setup() {
+	box2d.init();
+	box2d.setGravity(0, 10);
+	box2d.createGround();
+	box2d.setFPS(60.0);
+	parameters.setName("parameters");
+	parameters.add(x_vel1.set("X Velocity Ball 1", 10, 1, 100));
+	parameters.add(y_vel1.set("Y Velocity Ball 1", -10, -1, -100));
+	parameters.add(x_vel2.set("X Velocity Ball 2", -10, -1, -100));
+	parameters.add(y_vel2.set("Y Velocity Ball 2", -10, -1, -100));
+	parameters.add(radius1.set("Radius Ball 1", 15, 10, 100));
+	parameters.add(radius2.set("Radius Ball 2", 15, 10, 100));
+	gui.setup(parameters);
+	auto circle = std::make_shared<ofxBox2dCircle>();
+	circle.get()->setPhysics(3.0, 0.53, 0.9);
+	circle.get()->setup(box2d.getWorld(), radius1, ofGetHeight() - radius1, radius1);
+	circle.get()->setVelocity(x_vel1, y_vel1);
+	circles.push_back(circle);
+	circle = std::make_shared<ofxBox2dCircle>();
+	circle.get()->setPhysics(3.0, 0.53, 0.9);
+	circle.get()->setup(box2d.getWorld(), ofGetWidth() - radius2, ofGetHeight() - radius2, radius2);
+	circle.get()->setVelocity(x_vel2, y_vel2);
+	circles.push_back(circle);
+}
+
+void twoBalls::update() {
+	box2d.update();
+}
+
+void twoBalls::draw() {
+	gui.draw();
+	for (int i = 0; i < circles.size(); i++) {
+		ofFill();
+		ofSetHexColor(0xf6c738);
+		circles[i].get()->draw();
+	}
+
+	box2d.drawGround();
+
+	string info = "";
+	info += "Use the sliders to adjust the parameters!\n";
+	info += "Press [r] to reset!\n";
+	ofSetHexColor(0x444342);
+	ofDrawBitmapString(info, 10, ofGetHeight() / 3);
+
+	string title = "Simulation of Two Balls";
+	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
+}
