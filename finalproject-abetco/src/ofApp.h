@@ -26,6 +26,16 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		//enum Simulation {TwoBalls};
-		twoBalls tbsim;
+		void tbSimButtonPressed();
+		void pendSimButtonPressed();
+
+		twoBalls tbSim;
+
+		enum Simulation {TwoBalls, Pendulum};
+		Simulation sim;
+		
+
+		ofxPanel gui;
+		ofxButton tbSimButton;
+		ofxButton pendSimButton;
 };

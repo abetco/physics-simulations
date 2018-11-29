@@ -1,22 +1,47 @@
 #include "ofApp.h"
 //--------------------------------------------------------------
 void ofApp::setup(){
-	tbsim.setup();
+	ofSetVerticalSync(true);
+	tbSimButton.addListener(this, &ofApp::tbSimButtonPressed);
+	pendSimButton.addListener(this, &ofApp::pendSimButtonPressed);
+	gui.setup();
+	gui.add(tbSimButton.setup("Two Balls Simulation"));
+	gui.add(pendSimButton.setup("Pendulum Simulation"));
+	gui.setPosition(ofGetWindowWidth() - 250, 0);
+
+	sim = TwoBalls;
+
+	tbSim.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	tbsim.update();
+	if (sim == TwoBalls) {
+		tbSim.update();
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	tbsim.draw();
+	gui.draw();
+	if (sim == TwoBalls) {
+		tbSim.draw();
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	tbsim.keyPressed(key);
+	if (sim == TwoBalls) {
+		tbSim.keyPressed(key);
+	}	
+}
+
+void ofApp::tbSimButtonPressed() {
+	sim = TwoBalls;
+}
+
+void ofApp::pendSimButtonPressed() {
+	sim = Pendulum;
 }
 
 //--------------------------------------------------------------

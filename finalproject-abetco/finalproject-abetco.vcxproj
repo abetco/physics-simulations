@@ -133,7 +133,7 @@
       <Optimization>Disabled</Optimization>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\..\addons\ofxBox2d-master\libs;..\..\..\..\addons\ofxBox2d-master\libs\Box2D;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Collision;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Collision\Shapes;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Common;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Dynamics;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Dynamics\Contacts;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Dynamics\Joints;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Rope;..\..\..\..\addons\ofxBox2d-master\libs\triangle;..\..\..\..\addons\ofxBox2d-master\src;..\..\..\..\addons\ofxGui\src;..\..\..\..\addons\ofxUnitTests\src;..\..\..\..\addons\ofxVectorGraphics\libs;..\..\..\..\addons\ofxVectorGraphics\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -197,6 +197,11 @@
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">true</ExcludedFromBuild>
@@ -206,6 +211,7 @@
     </ClCompile>
     <ClCompile Include="src\tests.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="src\twoBalls.cpp" />
     <ClCompile Include="..\..\..\..\addons\ofxBox2d-master\src\ofxBox2d.cpp" />
