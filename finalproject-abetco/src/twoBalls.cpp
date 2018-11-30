@@ -4,43 +4,43 @@ twoBalls::twoBalls() {
 }
 
 void twoBalls::setup() {
-	box2d.init();
-	box2d.setGravity(0, 10);
-	box2d.createGround();
-	box2d.setFPS(60.0);
-	parameters.setName("Parameters");
-	parameters.add(x_vel1.set("X Velocity Ball 1", 10, 1, 100));
-	parameters.add(y_vel1.set("Y Velocity Ball 1", -10, -1, -100));
-	parameters.add(x_vel2.set("X Velocity Ball 2", -10, -1, -100));
-	parameters.add(y_vel2.set("Y Velocity Ball 2", -10, -1, -100));
-	parameters.add(radius1.set("Radius Ball 1", 15, 10, 100));
-	parameters.add(radius2.set("Radius Ball 2", 15, 10, 100));
-	gui.setup(parameters);
+	box2d_.init();
+	box2d_.setGravity(0, 10);
+	box2d_.createGround();
+	box2d_.setFPS(60.0);
+	parameters_.setName("Parameters");
+	parameters_.add(x_vel1_.set("X Velocity Ball 1", 10, 1, 100));
+	parameters_.add(y_vel1_.set("Y Velocity Ball 1", -10, -1, -100));
+	parameters_.add(x_vel2_.set("X Velocity Ball 2", -10, -1, -100));
+	parameters_.add(y_vel2_.set("Y Velocity Ball 2", -10, -1, -100));
+	parameters_.add(radius1_.set("Radius Ball 1", 15, 10, 100));
+	parameters_.add(radius2_.set("Radius Ball 2", 15, 10, 100));
+	gui_.setup(parameters_);
 	auto circle = std::make_shared<ofxBox2dCircle>();
 	circle.get()->setPhysics(3.0, 0.53, 0.9);
-	circle.get()->setup(box2d.getWorld(), radius1, ofGetHeight() - radius1, radius1);
-	circle.get()->setVelocity(x_vel1, y_vel1);
-	circles.push_back(circle);
+	circle.get()->setup(box2d_.getWorld(), radius1_, ofGetHeight() - radius1_, radius1_);
+	circle.get()->setVelocity(x_vel1_, y_vel1_);
+	circles_.push_back(circle);
 	circle = std::make_shared<ofxBox2dCircle>();
 	circle.get()->setPhysics(3.0, 0.53, 0.9);
-	circle.get()->setup(box2d.getWorld(), ofGetWidth() - radius2, ofGetHeight() - radius2, radius2);
-	circle.get()->setVelocity(x_vel2, y_vel2);
-	circles.push_back(circle);
+	circle.get()->setup(box2d_.getWorld(), ofGetWidth() - radius2_, ofGetHeight() - radius2_, radius2_);
+	circle.get()->setVelocity(x_vel2_, y_vel2_);
+	circles_.push_back(circle);
 }
 
 void twoBalls::update() {
-	box2d.update();
+	box2d_.update();
 }
 
 void twoBalls::draw() {
-	gui.draw();
-	for (int i = 0; i < circles.size(); i++) {
+	gui_.draw();
+	for (int i = 0; i < circles_.size(); i++) {
 		ofFill();
 		ofSetHexColor(0xf6c738);
-		circles[i].get()->draw();
+		circles_[i].get()->draw();
 	}
 
-	box2d.drawGround();
+	box2d_.drawGround();
 
 	string info = "";
 	info += "Use the sliders to adjust the parameters!\n";
@@ -53,16 +53,16 @@ void twoBalls::draw() {
 }
 
 void twoBalls::keyPressed(int key) {
-	ofVec2f pos_reset1(radius1, ofGetHeight() - radius1);
-	ofVec2f vel_reset1(x_vel1, y_vel1);
-	ofVec2f pos_reset2(ofGetWidth() - radius2, ofGetHeight() - radius2);
-	ofVec2f vel_reset2(x_vel2, y_vel2);
+	ofVec2f pos_reset1(radius1_, ofGetHeight() - radius1_);
+	ofVec2f vel_reset1(x_vel1_, y_vel1_);
+	ofVec2f pos_reset2(ofGetWidth() - radius2_, ofGetHeight() - radius2_);
+	ofVec2f vel_reset2(x_vel2_, y_vel2_);
 	if (key == 'r') {
-		circles[0].get()->setPosition(pos_reset1);
-		circles[0].get()->setVelocity(vel_reset1);
-		circles[0].get()->setRadius(radius1);
-		circles[1].get()->setPosition(pos_reset2);
-		circles[1].get()->setVelocity(vel_reset2);
-		circles[1].get()->setRadius(radius2);
+		circles_[0].get()->setPosition(pos_reset1);
+		circles_[0].get()->setVelocity(vel_reset1);
+		circles_[0].get()->setRadius(radius1_);
+		circles_[1].get()->setPosition(pos_reset2);
+		circles_[1].get()->setVelocity(vel_reset2);
+		circles_[1].get()->setRadius(radius2_);
 	}
 }

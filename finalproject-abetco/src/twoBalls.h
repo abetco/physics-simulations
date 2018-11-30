@@ -15,11 +15,11 @@ public:
 	twoBalls();
 
 private:
-	ofParameter<float> x_vel1, y_vel1, radius1, x_vel2, y_vel2, radius2;
-	ofxPanel gui;
-	ofParameterGroup parameters;
-	ofxBox2d                                 box2d;   // the box2d world
-	vector     <shared_ptr<ofxBox2dCircle> > circles; // default box2d circles
+	ofParameter<float> x_vel1_, y_vel1_, radius1_, x_vel2_, y_vel2_, radius2_;
+	ofxPanel gui_;
+	ofParameterGroup parameters_;
+	ofxBox2d                                 box2d_;   // the box2d world
+	vector     <shared_ptr<ofxBox2dCircle> > circles_; // default box2d circles
 };
 
 #endif

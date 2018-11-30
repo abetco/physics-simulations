@@ -18,17 +18,16 @@ public:
 	float calculateYPos(float angle);
 	float calculateAngle(float time);*/
 
-	/*void drawString(float xpos, float ypos);
-	void drawObj(float xpos, float ypos);
-	void drawTension(float xpos, float ypos);
+	/*void drawObj(float xpos, float ypos);*/
+	/*void drawTension(float xpos, float ypos);
 	void drawPeriod();*/
 
 
-	ofParameter<float> radius, gravity, angle;
-	ofxPanel gui;
-	ofParameterGroup parameters;
-	ofPolyline                              string;
-	ofxBox2d                                 box2d;   // the box2d world
+	ofParameter<float> radius_, gravity_, angle_);
+	ofxPanel gui_;
+	ofParameterGroup parameters_;
+	ofPolyline                              pend_string_;
+	ofxBox2d                                 box2d_;   // the box2d world
 
 	Pendulum();
 
