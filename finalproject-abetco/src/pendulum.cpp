@@ -1,4 +1,4 @@
-#include "pendulum.h"
+﻿#include "pendulum.h"
 
 Pendulum::Pendulum() {
 }
@@ -30,6 +30,7 @@ void Pendulum::draw() {
 	float xpos = calculateXPos(curr_angle);
 	float ypos = calculateYPos(curr_angle);
 	drawObj(xpos, ypos);
+	drawPeriod(calculatePeriod());
 }
 
 float Pendulum::calculateAngle(float time) {
@@ -60,7 +61,7 @@ void Pendulum::drawObj(float xpos, float ypos) {
 
 void Pendulum::drawPeriod(float period) {
 	string pend_period = std::to_string(period);
-	pend_period = "Period = 2? * ?(L/g) = " + pend_period;
+	pend_period = "Period = 2pi * sqrt(L/g) = " + pend_period;
 	ofDrawBitmapString(pend_period, ofGetWidth() / 2 - 50, 100);
 }
 

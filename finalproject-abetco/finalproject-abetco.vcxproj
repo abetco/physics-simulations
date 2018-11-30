@@ -133,7 +133,7 @@
       <Optimization>Disabled</Optimization>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\..\addons\ofxBox2d-master\libs;..\..\..\..\addons\ofxBox2d-master\libs\Box2D;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Collision;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Collision\Shapes;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Common;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Dynamics;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Dynamics\Contacts;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Dynamics\Joints;..\..\..\..\addons\ofxBox2d-master\libs\Box2D\Rope;..\..\..\..\addons\ofxBox2d-master\libs\triangle;..\..\..\..\addons\ofxBox2d-master\src;..\..\..\..\addons\ofxGui\src;..\..\..\..\addons\ofxUnitTests\src;..\..\..\..\addons\ofxVectorGraphics\libs;..\..\..\..\addons\ofxVectorGraphics\src</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>

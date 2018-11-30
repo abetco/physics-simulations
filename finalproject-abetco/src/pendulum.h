@@ -41,7 +41,7 @@ public:
 	void drawObj(float xpos, float ypos);
 	
 	/*void drawTension(float xpos, float ypos);*/
-	void drawPeriod();
+	void drawPeriod(float period);
 
 	Pendulum();
 
