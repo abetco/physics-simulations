@@ -5,10 +5,11 @@ Pendulum::Pendulum() {
 
 void Pendulum::setup() {
 	parameters_.setName("Parameters");
-	parameters_.add(radius_.set("Radius", 10, 1, 20));
+	parameters_.add(length_.set("String Length", 400, 100, 700));
 	parameters_.add(gravity_.set("Gravity", 10, 1, 100));
-	parameters_.add(angle_.set("Starting Angle", -10, -1, -100));
+	parameters_.add(angle_.set("Starting Angle", 10, 1, 60));
 	gui_.setup(parameters_);
+	start_time_ = 0;
 }
 
 void Pendulum::update() {
@@ -25,14 +26,36 @@ void Pendulum::draw() {
 	string title = "Simulation of a Simple Pendulum";
 	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
 
-	ofPoint pt;
-	pt.set
+	float curr_angle = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000);
+	float xpos = calculateXPos(curr_angle);
+	float ypos = calculateYPos(curr_angle);
+	drawObj(xpos, ypos);
 }
 
-//void Pendulum::drawObj(float xpos, float ypos) {
-//	ofPoint pt;
-//	pt.set()
-//}
+float Pendulum::calculateAngle(float time) {
+	return angle_ * M_PI / 180 * cos(sqrt(gravity_ / length_) * time);
+}
+
+float Pendulum::calculateXPos(float angle) {
+	return kXPivot + length_ * sin(angle);
+}
+float Pendulum::calculateYPos(float angle) {
+	return kYPivot + length_ * cos(angle);
+}
+
+void Pendulum::drawObj(float xpos, float ypos) {
+	ofPolyline pend_string;
+	ofPoint pt;
+	pt.set(kXPivot, kYPivot);
+	pend_string.addVertex(pt);
+	pt.set(xpos, ypos);
+	pend_string.addVertex(pt);
+	pend_string.draw();
+	ofDrawCircle(xpos, ypos, 5);
+}
 
 void Pendulum::keyPressed(int key) {
+	if (key == 'r') {
+		start_time_ = ofGetElapsedTimeMillis();
+	}
 }
