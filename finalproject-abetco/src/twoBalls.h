@@ -12,6 +12,13 @@ public:
 	void draw();
 	void keyPressed(int key);
 
+	float getXVel1();
+	float getXVel2();
+	float getYVel1();
+	float getYVel2();
+	float getRadius1();
+	float getRadius2();
+
 	twoBalls();
 
 private:

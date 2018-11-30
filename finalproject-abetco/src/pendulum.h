@@ -47,6 +47,7 @@ public:
 	float getAngle();
 	float getLength();
 	float getGravity();
+	float getStartTime();
 
 private:
 	const float kXPivot = 500;

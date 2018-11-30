@@ -66,3 +66,22 @@ void twoBalls::keyPressed(int key) {
 		circles_[1].get()->setRadius(radius2_);
 	}
 }
+
+float twoBalls::getXVel1() {
+	return x_vel1_;
+}
+float twoBalls::getXVel2() {
+	return x_vel2_;
+}
+float twoBalls::getYVel1() {
+	return y_vel1_;
+}
+float twoBalls::getYVel2() {
+	return y_vel2_;
+}
+float twoBalls::getRadius1() {
+	return radius1_;
+}
+float twoBalls::getRadius2() {
+	return radius2_;
+}
