@@ -19,6 +19,13 @@ public:
 	float getRadius1();
 	float getRadius2();
 
+	void setXVel1(float newValue);
+	void setYVel1(float newValue);
+	void setXVel2(float newValue);
+	void setYVel2(float newValue);
+	void setRadius1(float newValue);
+	void setRadius2(float newValue);
+
 	twoBalls();
 
 private:

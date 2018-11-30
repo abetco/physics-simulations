@@ -43,6 +43,10 @@ float Pendulum::calculateYPos(float angle) {
 	return kYPivot + length_ * cos(angle);
 }
 
+float Pendulum::calculatePeriod() {
+	return 2 * M_PI * sqrt(length_ / gravity_);
+}
+
 void Pendulum::drawObj(float xpos, float ypos) {
 	ofPolyline pend_string;
 	ofPoint pt;
@@ -54,6 +58,12 @@ void Pendulum::drawObj(float xpos, float ypos) {
 	ofDrawCircle(xpos, ypos, 5);
 }
 
+void Pendulum::drawPeriod(float period) {
+	string pend_period = std::to_string(period);
+	pend_period = "Period = 2? * ?(L/g) = " + pend_period;
+	ofDrawBitmapString(pend_period, ofGetWidth() / 2 - 50, 100);
+}
+
 void Pendulum::keyPressed(int key) {
 	if (key == 'r') {
 		start_time_ = ofGetElapsedTimeMillis();
@@ -62,4 +72,16 @@ void Pendulum::keyPressed(int key) {
 
 float Pendulum::getAngle() {
 	return angle_;
+}
+
+float Pendulum::getGravity() {
+	return gravity_;
+}
+
+float Pendulum::getLength() {
+	return length_;
+}
+
+float Pendulum::getStartTime() {
+	return start_time_;
 }

@@ -15,8 +15,8 @@ public:
 	void draw();
 	void keyPressed(int key);
 
-	/*float calculatePeriod();
-	float calculateTension();*/
+	float calculatePeriod();
+	/*float calculateTension();*/
 
 	/*Calculate the x position of the pendulum object based on the angle of the string with the vertical
 	@param angle: angle of the pendulum
@@ -39,8 +39,9 @@ public:
 	@param ypos: Y coordinate of the pendulum object
 	*/
 	void drawObj(float xpos, float ypos);
-	/*void drawTension(float xpos, float ypos);
-	void drawPeriod();*/
+	
+	/*void drawTension(float xpos, float ypos);*/
+	void drawPeriod();
 
 	Pendulum();
 

@@ -85,3 +85,22 @@ float twoBalls::getRadius1() {
 float twoBalls::getRadius2() {
 	return radius2_;
 }
+
+void twoBalls::setXVel1(float newValue) {
+	x_vel1_ = newValue;
+}
+void twoBalls::setYVel1(float newValue) {
+	y_vel1_ = newValue;
+}
+void twoBalls::setXVel2(float newValue) {
+	x_vel2_ = newValue;
+}
+void twoBalls::setYVel2(float newValue) {
+	y_vel2_ = newValue;
+}
+void twoBalls::setRadius1(float newValue) {
+	radius1_ = newValue;
+}
+void twoBalls::setRadius2(float newValue) {
+	radius2_ = newValue;
+}
