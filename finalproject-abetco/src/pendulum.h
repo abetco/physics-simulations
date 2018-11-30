@@ -44,6 +44,10 @@ public:
 
 	Pendulum();
 
+	float getAngle();
+	float getLength();
+	float getGravity();
+
 private:
 	const float kXPivot = 500;
 	const float kYPivot = 100;

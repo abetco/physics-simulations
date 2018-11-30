@@ -59,3 +59,7 @@ void Pendulum::keyPressed(int key) {
 		start_time_ = ofGetElapsedTimeMillis();
 	}
 }
+
+float Pendulum::getAngle() {
+	return angle_;
+}
