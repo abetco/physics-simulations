@@ -8,7 +8,7 @@ void twoBalls::setup() {
 	box2d.setGravity(0, 10);
 	box2d.createGround();
 	box2d.setFPS(60.0);
-	parameters.setName("parameters");
+	parameters.setName("Parameters");
 	parameters.add(x_vel1.set("X Velocity Ball 1", 10, 1, 100));
 	parameters.add(y_vel1.set("Y Velocity Ball 1", -10, -1, -100));
 	parameters.add(x_vel2.set("X Velocity Ball 2", -10, -1, -100));

@@ -12,12 +12,16 @@ void ofApp::setup(){
 	sim = TwoBalls;
 
 	tbSim.setup();
+	pendSim.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	if (sim == TwoBalls) {
 		tbSim.update();
+	}
+	if (sim == Pendulum) {
+		pendSim.update();
 	}
 }
 
@@ -27,13 +31,19 @@ void ofApp::draw(){
 	if (sim == TwoBalls) {
 		tbSim.draw();
 	}
+	if (sim == Pendulum) {
+		pendSim.draw();
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 	if (sim == TwoBalls) {
 		tbSim.keyPressed(key);
-	}	
+	}
+	if (sim == Pendulum) {
+		pendSim.keyPressed(key);
+	}
 }
 
 void ofApp::tbSimButtonPressed() {

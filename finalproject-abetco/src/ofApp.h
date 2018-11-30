@@ -5,6 +5,7 @@
 #include "ofxGui.h"
 
 #include "twoBalls.h"
+#include "pendulum.h"
 
 
 class ofApp : public ofBaseApp{
@@ -30,6 +31,7 @@ class ofApp : public ofBaseApp{
 		void pendSimButtonPressed();
 
 		twoBalls tbSim;
+		Pendulum pendSim;
 
 		enum Simulation {TwoBalls, Pendulum};
 		Simulation sim;
