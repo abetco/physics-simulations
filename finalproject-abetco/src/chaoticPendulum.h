@@ -21,24 +21,24 @@ public:
 	/*Calculate the x position of the pendulum object based on the angle of the string with the vertical
 	@param angle: angle of the pendulum
 	@return the x position of the pendulum object*/
-	float calculateXPos(float angle);
+	float calculateXPos(float angle, float xpivot, float length);
 
 	/*Calculate the y position of the pendulum object based on the angle of the string with the vertical
 	@param angle: angle of the pendulum
 	@return the y position of the pendulum object*/
-	float calculateYPos(float angle);
+	float calculateYPos(float angle, float ypivot, float length);
 
 	/*Calculate the angle of the pendulum object based on the time elapsed
 	@param time: time passed since beginning of simulation or reset
 	@return the angle of the pendulum with the verticle
 	*/
-	float calculateAngle(float time);
+	float calculateAngle(float time, float angle, float gravity, float length);
 
 	/*Draws the string and circle representing the pendulum
 	@param xpos: X coordinate of the pendulum object
 	@param ypos: Y coordinate of the pendulum object
 	*/
-	void drawObj(float xpos, float ypos);
+	void drawObj(float xpos, float ypos, float xpivot, float ypivot);
 
 	/*void drawTension(float xpos, float ypos);*/
 	void drawPeriod(float period);
@@ -54,7 +54,7 @@ private:
 	const float kXPivot = 500;
 	const float kYPivot = 100;
 	float start_time_;
-	ofParameter<float> length_, gravity_, angle_;
+	ofParameter<float> length1_, gravity1_, angle1_, length2_, gravity2_, angle2_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;
 	ofxBox2d box2d_;
