@@ -4,15 +4,18 @@ void ofApp::setup(){
 	ofSetVerticalSync(true);
 	tbSimButton.addListener(this, &ofApp::tbSimButtonPressed);
 	pendSimButton.addListener(this, &ofApp::pendSimButtonPressed);
+	cPendSimButton.addListener(this, &ofApp::cPendSimButtonPressed);
 	gui.setup();
 	gui.add(tbSimButton.setup("Two Balls Simulation"));
 	gui.add(pendSimButton.setup("Pendulum Simulation"));
+	gui.add(cPendSimButton.setup("Chaotic Pendulum Simulation"));
 	gui.setPosition(ofGetWindowWidth() - 250, 0);
 
 	sim = TwoBalls;
 
 	tbSim.setup();
 	pendSim.setup();
+	cPendSim.setup();
 }
 
 //--------------------------------------------------------------
@@ -22,6 +25,9 @@ void ofApp::update(){
 	}
 	if (sim == Pendulum) {
 		pendSim.update();
+	}
+	if (sim == ChaoticPendulum) {
+		cPendSim.update();
 	}
 }
 
@@ -34,6 +40,9 @@ void ofApp::draw(){
 	if (sim == Pendulum) {
 		pendSim.draw();
 	}
+	if (sim == ChaoticPendulum) {
+		cPendSim.draw();
+	}
 }
 
 //--------------------------------------------------------------
@@ -44,6 +53,9 @@ void ofApp::keyPressed(int key){
 	if (sim == Pendulum) {
 		pendSim.keyPressed(key);
 	}
+	if (sim == ChaoticPendulum) {
+		cPendSim.keyPressed(key);
+	}
 }
 
 void ofApp::tbSimButtonPressed() {
@@ -52,6 +64,10 @@ void ofApp::tbSimButtonPressed() {
 
 void ofApp::pendSimButtonPressed() {
 	sim = Pendulum;
+}
+
+void ofApp::cPendSimButtonPressed() {
+	sim = ChaoticPendulum;
 }
 
 //--------------------------------------------------------------

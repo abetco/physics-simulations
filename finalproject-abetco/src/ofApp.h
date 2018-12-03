@@ -29,15 +29,18 @@ class ofApp : public ofBaseApp{
 
 		void tbSimButtonPressed();
 		void pendSimButtonPressed();
+		void cPendSimButtonPressed();
 
 		twoBalls tbSim;
 		Pendulum pendSim;
+		chaoticPendulum cPendSim;
 
-		enum Simulation {TwoBalls, Pendulum};
+		enum Simulation {TwoBalls, Pendulum, ChaoticPendulum};
 		Simulation sim;
 		
 
 		ofxPanel gui;
 		ofxButton tbSimButton;
 		ofxButton pendSimButton;
+		ofxButton cPendSimButton;
 };
