@@ -6,6 +6,7 @@
 
 #include "twoBalls.h"
 #include "pendulum.h"
+#include "chaoticPendulum.h"
 
 
 class ofApp : public ofBaseApp{

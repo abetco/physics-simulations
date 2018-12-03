@@ -1,5 +1,5 @@
-#ifndef TWOBALLS_H
-#define TWOBALLS_H
+#ifndef TWO_BALLS_H
+#define TWO_BALLS_H
 
 #include "ofMain.h"
 #include "ofxBox2d.h"
