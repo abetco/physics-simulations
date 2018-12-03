@@ -52,7 +52,7 @@ public:
 
 private:
 	const float kXPivot = 500;
-	const float kYPivot = 100;
+	const float kYPivot = 120;
 	float start_time_;
 	ofParameter<float> length_, gravity_, angle_;
 	ofxPanel gui_;

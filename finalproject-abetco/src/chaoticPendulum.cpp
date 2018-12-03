@@ -5,12 +5,11 @@ chaoticPendulum::chaoticPendulum() {
 
 void chaoticPendulum::setup() {
 	parameters_.setName("Parameters");
-	parameters_.add(length1_.set("String Length 1", 400, 100, 700));
-	parameters_.add(gravity1_.set("Gravity 1", 10, 1, 100));
+	parameters_.add(length1_.set("String Length 1", 200, 50, 400));
 	parameters_.add(angle1_.set("Starting Angle 1", 10, 1, 60));
-	parameters_.add(length2_.set("String Length 1", 400, 100, 700));
-	parameters_.add(gravity2_.set("Gravity 1", 10, 1, 100));
-	parameters_.add(angle2_.set("Starting Angle 1", 10, 1, 60));
+	parameters_.add(length2_.set("String Length 2", 200, 50, 400));
+	parameters_.add(angle2_.set("Starting Angle 2", 10, 1, 180));
+	parameters_.add(gravity_.set("Gravity", 10, 1, 100));
 	gui_.setup(parameters_);
 	start_time_ = 0;
 }
@@ -29,11 +28,11 @@ void chaoticPendulum::draw() {
 	string title = "Simulation of a Chaotic Pendulum";
 	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
 
-	float curr_angle1 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle1_, gravity1_, length1_);
+	float curr_angle1 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle1_, length1_);
 	float xpos1 = calculateXPos(curr_angle1, kXPivot, length1_);
 	float ypos1 = calculateYPos(curr_angle1, kYPivot, length1_);
 	drawObj(xpos1, ypos1, kXPivot, kYPivot);
-	float curr_angle2 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle2_, gravity2_, length2_);
+	float curr_angle2 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle2_, length2_);
 	float xpos2 = calculateXPos(curr_angle2, xpos1, length2_);
 	float ypos2 = calculateYPos(curr_angle2, ypos1, length2_);
 	drawObj(xpos2, ypos2, xpos1, ypos1);
@@ -41,8 +40,8 @@ void chaoticPendulum::draw() {
 	drawPeriod(calculatePeriod());
 }
 
-float chaoticPendulum::calculateAngle(float time, float angle, float gravity, float length) {
-	return angle * M_PI / 180 * cos(sqrt(gravity / length) * time);
+float chaoticPendulum::calculateAngle(float time, float angle, float length) {
+	return angle * M_PI / 180 * cos(sqrt(gravity_ / length) * time);
 }
 
 float chaoticPendulum::calculateXPos(float angle, float xpivot, float length) {
@@ -53,7 +52,7 @@ float chaoticPendulum::calculateYPos(float angle, float ypivot, float length) {
 }
 
 float chaoticPendulum::calculatePeriod() {
-	return 2 * M_PI * sqrt(length1_ / gravity1_);
+	return 2 * M_PI * sqrt(length1_ / gravity_);
 }
 
 void chaoticPendulum::drawObj(float xpos, float ypos, float xpivot, float ypivot) {
@@ -84,7 +83,7 @@ float chaoticPendulum::getAngle() {
 }
 
 float chaoticPendulum::getGravity() {
-	return gravity1_;
+	return gravity_;
 }
 
 float chaoticPendulum::getLength() {
