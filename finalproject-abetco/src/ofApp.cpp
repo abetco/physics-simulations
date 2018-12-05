@@ -21,6 +21,7 @@ void ofApp::setup(){
 	pendSim.setup();
 	cPendSim.setup();
 	buoSim.setup();
+	mirLensSim.setup();
 }
 
 //--------------------------------------------------------------
@@ -36,6 +37,9 @@ void ofApp::update(){
 	}
 	if (sim == Buoyancy) {
 		buoSim.update();
+	}
+	if (sim == MirrorLens) {
+		mirLensSim.update();
 	}
 }
 
@@ -54,6 +58,9 @@ void ofApp::draw(){
 	if (sim == Buoyancy) {
 		buoSim.draw();
 	}
+	if (sim == MirrorLens) {
+		mirLensSim.draw();
+	}
 }
 
 //--------------------------------------------------------------
@@ -69,6 +76,9 @@ void ofApp::keyPressed(int key){
 	}
 	if (sim == Buoyancy) {
 		buoSim.keyPressed(key);
+	}
+	if (sim == MirrorLens) {
+		mirLensSim.keyPressed(key);
 	}
 }
 
@@ -88,6 +98,9 @@ void ofApp::buoSimButtonPressed() {
 	sim = Buoyancy;
 }
 
+void ofApp::mirLensSimButtonPressed() {
+	sim == MirrorLens;
+}
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
 
