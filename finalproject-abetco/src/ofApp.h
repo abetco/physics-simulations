@@ -7,6 +7,7 @@
 #include "twoBalls.h"
 #include "pendulum.h"
 #include "chaoticPendulum.h"
+#include "buoyancy.h"
 
 
 class ofApp : public ofBaseApp{
@@ -31,12 +32,14 @@ class ofApp : public ofBaseApp{
 		void tbSimButtonPressed();
 		void pendSimButtonPressed();
 		void cPendSimButtonPressed();
+		void buoSimButtonPressed();
 
 		twoBalls tbSim;
 		Pendulum pendSim;
 		chaoticPendulum cPendSim;
+		Buoyancy buoSim;
 
-		enum Simulation {TwoBalls, Pendulum, ChaoticPendulum};
+		enum Simulation {TwoBalls, Pendulum, ChaoticPendulum, Buoyancy};
 		Simulation sim;
 		
 
@@ -44,4 +47,5 @@ class ofApp : public ofBaseApp{
 		ofxButton tbSimButton;
 		ofxButton pendSimButton;
 		ofxButton cPendSimButton;
+		ofxButton buoSimButton;
 };
