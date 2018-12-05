@@ -226,6 +226,12 @@
     <ClCompile Include="src\chaoticPendulum.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\mirrorLens.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\buoyancy.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -546,6 +552,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\chaoticPendulum.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mirrorLens.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\buoyancy.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

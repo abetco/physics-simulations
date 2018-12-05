@@ -10,7 +10,7 @@ void ofApp::setup(){
 	gui.add(tbSimButton.setup("Two Balls Simulation"));
 	gui.add(pendSimButton.setup("Pendulum Simulation"));
 	gui.add(cPendSimButton.setup("Chaotic Pendulum Simulation"));
-	gui.add(buoSimButtonPressed.setup("Buoyancy Simulation"));
+	gui.add(buoSimButton.setup("Buoyancy Simulation"));
 	gui.setPosition(ofGetWindowWidth() - 250, 0);
 
 	sim = TwoBalls;

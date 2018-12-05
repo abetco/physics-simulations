@@ -203,10 +203,12 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\buoyancy.cpp" />
     <ClCompile Include="src\chaoticPendulum.cpp" />
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="src\mirrorLens.cpp" />
     <ClCompile Include="src\ofApp.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -285,8 +287,10 @@
     <ClCompile Include="..\..\..\..\addons\ofxVectorGraphics\libs\CreEPS.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\buoyancy.h" />
     <ClInclude Include="src\catch.hpp" />
     <ClInclude Include="src\chaoticPendulum.h" />
+    <ClInclude Include="src\mirrorLens.h" />
     <ClInclude Include="src\pendulum.h" />
     <ClInclude Include="src\ofApp.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">true</ExcludedFromBuild>
