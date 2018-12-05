@@ -15,7 +15,7 @@ public:
 	mirrorLens();
 
 private:
-	ofParameter<float> focal_length_, ;
+	ofParameter<float> focal_length_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;
 	ofxBox2d                                 box2d_;

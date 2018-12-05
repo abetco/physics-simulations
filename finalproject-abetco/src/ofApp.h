@@ -8,6 +8,7 @@
 #include "pendulum.h"
 #include "chaoticPendulum.h"
 #include "buoyancy.h"
+#include "mirrorLens.h"
 
 
 class ofApp : public ofBaseApp{
@@ -33,13 +34,15 @@ class ofApp : public ofBaseApp{
 		void pendSimButtonPressed();
 		void cPendSimButtonPressed();
 		void buoSimButtonPressed();
+		void mirLensSimButtonPressed();
 
 		twoBalls tbSim;
 		Pendulum pendSim;
 		chaoticPendulum cPendSim;
 		Buoyancy buoSim;
+		mirrorLens mirLensSim;
 
-		enum Simulation {TwoBalls, Pendulum, ChaoticPendulum, Buoyancy};
+		enum Simulation {TwoBalls, Pendulum, ChaoticPendulum, Buoyancy, MirrorLens};
 		Simulation sim;
 		
 
@@ -48,4 +51,5 @@ class ofApp : public ofBaseApp{
 		ofxButton pendSimButton;
 		ofxButton cPendSimButton;
 		ofxButton buoSimButton;
+		ofxButton mirLensSimButton;
 };

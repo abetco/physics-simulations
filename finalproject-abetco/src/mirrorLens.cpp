@@ -17,5 +17,5 @@ void mirrorLens::draw() {
 
 void mirrorLens::keyPressed(int key) {
 	
-	}
+	
 }

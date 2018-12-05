@@ -6,11 +6,13 @@ void ofApp::setup(){
 	pendSimButton.addListener(this, &ofApp::pendSimButtonPressed);
 	cPendSimButton.addListener(this, &ofApp::cPendSimButtonPressed);
 	buoSimButton.addListener(this, &ofApp::buoSimButtonPressed);
+	mirLensSimButton.addListener(this, &ofApp::mirLensSimButtonPressed);
 	gui.setup();
 	gui.add(tbSimButton.setup("Two Balls Simulation"));
 	gui.add(pendSimButton.setup("Pendulum Simulation"));
 	gui.add(cPendSimButton.setup("Chaotic Pendulum Simulation"));
 	gui.add(buoSimButton.setup("Buoyancy Simulation"));
+	gui.add(mirLensSimButton.setup("Mirror Lens Simulation"));
 	gui.setPosition(ofGetWindowWidth() - 250, 0);
 
 	sim = TwoBalls;
