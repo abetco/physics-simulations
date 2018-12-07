@@ -4,6 +4,7 @@ chaoticPendulum::chaoticPendulum() {
 }
 
 void chaoticPendulum::setup() {
+	myFont.load("Cabin-Regular.ttf", 18);
 	parameters_.setName("Parameters");
 	parameters_.add(length1_.set("String Length 1", 200, 50, 400));
 	parameters_.add(angle1_.set("Starting Angle 1", 10, 1, 60));
@@ -23,10 +24,10 @@ void chaoticPendulum::draw() {
 	info += "Use the sliders to adjust the parameters!\n";
 	info += "Press [r] to reset!\n";
 	ofSetHexColor(0x444342);
-	ofDrawBitmapString(info, 10, ofGetHeight() / 3);
+	myFont.drawString(info, 10, ofGetHeight() / 3);
 
 	string title = "Simulation of a Chaotic Pendulum";
-	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
+	myFont.drawString(title, ofGetWidth() / 2 -100, 50);
 
 	float curr_angle1 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle1_, length1_);
 	float xpos1 = calculateXPos(curr_angle1, kXPivot, length1_);
@@ -69,7 +70,7 @@ void chaoticPendulum::drawObj(float xpos, float ypos, float xpivot, float ypivot
 void chaoticPendulum::drawPeriod(float period) {
 	string pend_period = std::to_string(period);
 	pend_period = "Period = 2pi * sqrt(L/g) = " + pend_period;
-	ofDrawBitmapString(pend_period, ofGetWidth() / 2 - 50, 100);
+	myFont.drawString(pend_period, ofGetWidth() / 2 - 50, 100);
 }
 
 void chaoticPendulum::keyPressed(int key) {

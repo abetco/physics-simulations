@@ -99,7 +99,7 @@ void ofApp::buoSimButtonPressed() {
 }
 
 void ofApp::mirLensSimButtonPressed() {
-	sim == MirrorLens;
+	sim = MirrorLens;
 }
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){

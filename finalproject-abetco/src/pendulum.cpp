@@ -4,6 +4,7 @@ Pendulum::Pendulum() {
 }
 
 void Pendulum::setup() {
+	myFont.load("Cabin-Regular.ttf", 18);
 	parameters_.setName("Parameters");
 	parameters_.add(length_.set("String Length", 400, 100, 700));
 	parameters_.add(gravity_.set("Gravity", 10, 1, 100));
@@ -21,10 +22,10 @@ void Pendulum::draw() {
 	info += "Use the sliders to adjust the parameters!\n";
 	info += "Press [r] to reset!\n";
 	ofSetHexColor(0x444342);
-	ofDrawBitmapString(info, 10, ofGetHeight() / 3);
+	myFont.drawString(info, 10, ofGetHeight() / 3);
 
 	string title = "Simulation of a Simple Pendulum";
-	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
+	myFont.drawString(title, ofGetWidth() / 2 - 100, 50);
 
 	float curr_angle = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000);
 	float xpos = calculateXPos(curr_angle);
@@ -61,8 +62,8 @@ void Pendulum::drawObj(float xpos, float ypos) {
 
 void Pendulum::drawPeriod(float period) {
 	string pend_period = std::to_string(period);
-	pend_period = "Period = 2pi * sqrt(L/g) = " + pend_period;
-	ofDrawBitmapString(pend_period, ofGetWidth() / 2 - 50, 100);
+	pend_period = "Period = 2π•√(L/g) = " + pend_period;
+	myFont.drawString(pend_period, ofGetWidth() / 2 - 50, 100);
 }
 
 void Pendulum::keyPressed(int key) {

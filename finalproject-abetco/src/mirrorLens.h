@@ -12,14 +12,21 @@ public:
 	void draw();
 	void keyPressed(int key);
 
+	void drawSetup();
+	void drawObject();
+	void drawImage(float image_distance, float image_height);
+
+	float calculateImageDistance();
+	float calculateImageHeight(float image_distance);
+
 	mirrorLens();
 
 private:
-	ofParameter<float> focal_length_;
+	float kCenterX = 800;
+	float kCenterY = 384;
+	ofParameter<float> focal_length_, distance_, height_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;
-	ofxBox2d                                 box2d_;
-	vector     <shared_ptr<ofxBox2dCircle> > circles_;
 };
 
 #endif

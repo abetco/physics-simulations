@@ -4,6 +4,8 @@ twoBalls::twoBalls() {
 }
 
 void twoBalls::setup() {
+	myFont.load("Cabin-Regular.ttf", 18);
+	ofSetBackgroundColorHex(0xffffff);
 	box2d_.init();
 	box2d_.setGravity(0, 10);
 	box2d_.createGround();
@@ -36,20 +38,19 @@ void twoBalls::draw() {
 	gui_.draw();
 	for (int i = 0; i < circles_.size(); i++) {
 		ofFill();
-		ofSetHexColor(0xf6c738);
+		ofSetHexColor(0xb3ffe0);
 		circles_[i].get()->draw();
 	}
 
 	box2d_.drawGround();
 
+	ofSetHexColor(0x000000);
 	string info = "";
 	info += "Use the sliders to adjust the parameters!\n";
 	info += "Press [r] to reset!\n";
-	ofSetHexColor(0x444342);
-	ofDrawBitmapString(info, 10, ofGetHeight() / 3);
-
+	myFont.drawString(info, 10, ofGetHeight() / 3);
 	string title = "Simulation of Two Balls";
-	ofDrawBitmapString(title, ofGetWidth() / 2 - 50, 10);
+	myFont.drawString(title, ofGetWidth() / 2 - 100, 50);
 }
 
 void twoBalls::keyPressed(int key) {

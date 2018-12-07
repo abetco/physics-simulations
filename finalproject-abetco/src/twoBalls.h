@@ -29,6 +29,7 @@ public:
 	twoBalls();
 
 private:
+	ofTrueTypeFont myFont;
 	ofParameter<float> x_vel1_, y_vel1_, radius1_, x_vel2_, y_vel2_, radius2_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;

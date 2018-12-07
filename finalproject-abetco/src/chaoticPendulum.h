@@ -51,6 +51,7 @@ public:
 	float getStartTime();
 
 private:
+	ofTrueTypeFont myFont;
 	const float kXPivot = 500;
 	const float kYPivot = 120;
 	float start_time_;
