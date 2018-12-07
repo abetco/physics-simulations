@@ -126,6 +126,15 @@ TEST_CASE("Chaotic Pendulum Simulation Test", "[chaotic pendulum]") {
 TEST_CASE("Mirror and Lens Simulation Test", "[mirror lens]") {
 	mirrorLens mirLensSim;
 	mirLensSim.setup();
+	SECTION("Focal Length is set to initial value") {
+		REQUIRE(mirLensSim.getFocalLength == 100);
+	}
+	SECTION("Object Distance is set to initial value") {
+		REQUIRE(mirLensSim.getDistance() == 200);
+	}
+	SECTION("Object Height is set to initial value") {
+		REQUIRE(mirLensSim.getHeight() == 100);
+	}
 }
 
 TEST_CASE("Buoyancy Simulation Test", "[buoyancy]") {

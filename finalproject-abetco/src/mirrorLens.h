@@ -21,6 +21,10 @@ public:
 
 	mirrorLens();
 
+	float getFocalLength();
+	float getDistance();
+	float getHeight();
+
 private:
 	float kCenterX = 800;
 	float kCenterY = 384;

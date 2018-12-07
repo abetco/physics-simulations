@@ -68,3 +68,13 @@ float mirrorLens::calculateImageDistance() {
 float mirrorLens::calculateImageHeight(float image_distance) {
 	return -(image_distance / distance_) * height_;
 }
+
+float mirrorLens::getFocalLength() {
+	return focal_length_;
+}
+float mirrorLens::getDistance() {
+	return distance_;
+}
+float mirrorLens::getHeight() {
+	return height_;
+}
