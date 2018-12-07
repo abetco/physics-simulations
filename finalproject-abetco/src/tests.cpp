@@ -121,6 +121,24 @@ TEST_CASE("Pendulum Simulation Test", "[pendulum]") {
 TEST_CASE("Chaotic Pendulum Simulation Test", "[chaotic pendulum]") {
 	chaoticPendulum cPendSim;
 	cPendSim.setup();
+	SECTION("Angle of first pendlum is set to initial value") {
+		REQUIRE(cPendSim.getAngle1() == 10);
+	}
+	SECTION("Length is set to initial value") {
+		REQUIRE(cPendSim.getLength1() == 200);
+	}
+	SECTION("Angle is set to initial value") {
+		REQUIRE(cPendSim.getAngle2() == 10);
+	}
+	SECTION("Length is set to initial value") {
+		REQUIRE(cPendSim.getLength2() == 200);
+	}
+	SECTION("Gravity is set to initial value") {
+		REQUIRE(cPendSim.getGravity() == 10);
+	}
+	SECTION("Start Time is 0") {
+		REQUIRE(cPendSim.getStartTime() == 0);
+	}
 }
 
 TEST_CASE("Mirror and Lens Simulation Test", "[mirror lens]") {

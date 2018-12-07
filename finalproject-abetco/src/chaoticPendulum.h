@@ -45,8 +45,10 @@ public:
 
 	chaoticPendulum();
 
-	float getAngle();
-	float getLength();
+	float getAngle1();
+	float getLength1();
+	float getAngle2();
+	float getLength2();
 	float getGravity();
 	float getStartTime();
 

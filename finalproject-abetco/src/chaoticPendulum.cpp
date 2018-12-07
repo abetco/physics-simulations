@@ -79,16 +79,24 @@ void chaoticPendulum::keyPressed(int key) {
 	}
 }
 
-float chaoticPendulum::getAngle() {
+float chaoticPendulum::getAngle1() {
 	return angle1_;
+}
+
+float chaoticPendulum::getLength1() {
+	return length1_;
+}
+
+float chaoticPendulum::getAngle2() {
+	return angle2_;
+}
+
+float chaoticPendulum::getLength2() {
+	return length2_;
 }
 
 float chaoticPendulum::getGravity() {
 	return gravity_;
-}
-
-float chaoticPendulum::getLength() {
-	return length1_;
 }
 
 float chaoticPendulum::getStartTime() {
