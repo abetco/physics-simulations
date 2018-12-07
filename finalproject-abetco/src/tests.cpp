@@ -3,6 +3,9 @@
 #include "catch.hpp"
 #include "twoBalls.h"
 #include "pendulum.h"
+#include "mirrorLens.h"
+#include "buoyancy.h"
+#include "chaoticPendulum.h"
 
 using namespace std;
 
@@ -113,4 +116,19 @@ TEST_CASE("Pendulum Simulation Test", "[pendulum]") {
 	SECTION("Calculate Y Position at Bottom") {
 		REQUIRE(pendSim.calculateYPos(0) == 500);
 	}
+}
+
+TEST_CASE("Chaotic Pendulum Simulation Test", "[chaotic pendulum]") {
+	chaoticPendulum cPendSim;
+	cPendSim.setup();
+}
+
+TEST_CASE("Mirror and Lens Simulation Test", "[mirror lens]") {
+	mirrorLens mirLensSim;
+	mirLensSim.setup();
+}
+
+TEST_CASE("Buoyancy Simulation Test", "[buoyancy]") {
+	Buoyancy buoSim;
+	buoSim.setup();
 }

@@ -33,13 +33,7 @@ void mirrorLens::drawSetup() {
 	pt.set(0, kCenterY);
 	line.addVertex(pt);
 	line.draw();
-	ofPath path;
-	for (int i = 0; i < 5; i++) {
-		path.arc(i * 50 + 20, i * 50 + 20, i * 40 + 10, i * 40 + 10, 0, 360); // creates a new ofSubPath
-		path.close();
-	}
-	ofSetHexColor(0x000000);
-	path.draw();
+	
 }
 
 void mirrorLens::drawObject() {
