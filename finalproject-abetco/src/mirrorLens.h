@@ -12,11 +12,22 @@ public:
 	void draw();
 	void keyPressed(int key);
 
+	/*Draw the setup of the mirror simulation, which includes the mirror itself and the line at which the object and image are on*/
 	void drawSetup();
+
+	/*Draws the object*/
 	void drawObject();
+
+	/*Draws the image
+	@param: image_distance is the distance of the image from the mirror
+	@param: image_height is how tall the image is*/
 	void drawImage(float image_distance, float image_height);
 
+	/*Calculates the distance of the image in the mirror
+	@return: image distance, where a positive distance means the image is to the left of the mirror, on the same side of the object*/
 	float calculateImageDistance();
+
+	/*Calculate t*/
 	float calculateImageHeight(float image_distance);
 
 	mirrorLens();
