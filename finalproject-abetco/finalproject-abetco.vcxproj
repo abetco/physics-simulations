@@ -375,6 +375,7 @@
     <ClInclude Include="..\..\..\..\addons\ofxVectorGraphics\src\ofxVectorGraphics.h" />
     <ClInclude Include="..\..\..\..\addons\ofxVectorGraphics\libs\CreEPS.hpp" />
     <ClInclude Include="..\..\..\..\addons\ofxVectorGraphics\libs\CreEPS_Types.hpp" />
+    <ClInclude Include="src\twoBallsConstants.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

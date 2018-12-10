@@ -297,6 +297,12 @@
     <Filter Include="src\addons\ofxVectorGraphics\libs">
       <UniqueIdentifier>{B341F552-35C4-7EB6-B3C9-9D96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\constants">
+      <UniqueIdentifier>{46aa88e2-0849-4836-90d7-06d6ac9c6a11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\simulations">
+      <UniqueIdentifier>{88b924db-d1f1-4861-a8c9-1b7425a90b38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
@@ -560,8 +566,13 @@
     <ClInclude Include="src\buoyancy.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\twoBallsConstants.h">
+      <Filter>src\constants</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="icon.rc" />
+    <ResourceCompile Include="icon.rc">
+      <Filter>src</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

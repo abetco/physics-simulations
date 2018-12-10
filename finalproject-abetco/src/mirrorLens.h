@@ -27,7 +27,9 @@ public:
 	@return: image distance, where a positive distance means the image is to the left of the mirror, on the same side of the object*/
 	float calculateImageDistance();
 
-	/*Calculate t*/
+	/*Calculates the image height using the magnification equation and the image distance
+	@param: image_distance is the distance of the image from the mirror
+	@return: the image height which is how tall the image is*/
 	float calculateImageHeight(float image_distance);
 
 	mirrorLens();
