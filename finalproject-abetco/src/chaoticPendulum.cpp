@@ -4,13 +4,13 @@ chaoticPendulum::chaoticPendulum() {
 }
 
 void chaoticPendulum::setup() {
-	myFont.load("Cabin-Regular.ttf", 18);
+	myFont.load("Cabin-Regular.ttf", ChaoticPendulumConstants::kFontSize);
 	parameters_.setName("Parameters");
-	parameters_.add(length1_.set("String Length 1", 200, 50, 400));
-	parameters_.add(angle1_.set("Starting Angle 1", 10, 1, 60));
-	parameters_.add(length2_.set("String Length 2", 200, 50, 400));
-	parameters_.add(angle2_.set("Starting Angle 2", 10, 1, 180));
-	parameters_.add(gravity_.set("Gravity", 10, 1, 100));
+	parameters_.add(length1_.set("String Length 1", ChaoticPendulumConstants::kLengthStart, ChaoticPendulumConstants::kLengthLow, ChaoticPendulumConstants::kLengthHigh));
+	parameters_.add(angle1_.set("Starting Angle 1", ChaoticPendulumConstants::kAngleStart, ChaoticPendulumConstants::kAngleLow, ChaoticPendulumConstants::kAngleHigh1));
+	parameters_.add(length2_.set("String Length 2", ChaoticPendulumConstants::kLengthStart, ChaoticPendulumConstants::kLengthLow, ChaoticPendulumConstants::kLengthHigh));
+	parameters_.add(angle2_.set("Starting Angle 2", ChaoticPendulumConstants::kAngleStart, ChaoticPendulumConstants::kAngleLow, ChaoticPendulumConstants::kAngleHigh2));
+	parameters_.add(gravity_.set("Gravity", ChaoticPendulumConstants::kGravityStart, ChaoticPendulumConstants::kGravityLow, ChaoticPendulumConstants::kGravityHigh)));
 	gui_.setup(parameters_);
 	start_time_ = 0;
 }
@@ -23,16 +23,15 @@ void chaoticPendulum::draw() {
 	string info = "";
 	info += "Use the sliders to adjust the parameters!\n";
 	info += "Press [r] to reset!\n";
-	ofSetHexColor(0x444342);
 	myFont.drawString(info, 10, ofGetHeight() / 3);
 
 	string title = "Simulation of a Chaotic Pendulum";
 	myFont.drawString(title, ofGetWidth() / 2 -100, 50);
 
 	float curr_angle1 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle1_, length1_);
-	float xpos1 = calculateXPos(curr_angle1, kXPivot, length1_);
-	float ypos1 = calculateYPos(curr_angle1, kYPivot, length1_);
-	drawObj(xpos1, ypos1, kXPivot, kYPivot);
+	float xpos1 = calculateXPos(curr_angle1, ChaoticPendulumConstants::kXPivot, length1_);
+	float ypos1 = calculateYPos(curr_angle1, ChaoticPendulumConstants::kYPivot, length1_);
+	drawObj(xpos1, ypos1, ChaoticPendulumConstants::kXPivot, ChaoticPendulumConstants::kYPivot);
 	float curr_angle2 = calculateAngle((ofGetElapsedTimeMillis() - start_time_) / 1000, angle2_, length2_);
 	float xpos2 = calculateXPos(curr_angle2, xpos1, length2_);
 	float ypos2 = calculateYPos(curr_angle2, ypos1, length2_);
