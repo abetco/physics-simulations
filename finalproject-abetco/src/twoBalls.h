@@ -4,6 +4,7 @@
 #include "ofMain.h"
 #include "ofxBox2d.h"
 #include "ofxGui.h"
+#include <twoBallsConstants.h>
 
 class twoBalls {
 public:

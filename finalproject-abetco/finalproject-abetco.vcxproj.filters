@@ -13,9 +13,6 @@
     <ClCompile Include="src\ofApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\twoBalls.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\addons\ofxBox2d-master\src\ofxBox2d.cpp">
       <Filter>src\addons\ofxBox2d-master\src</Filter>
     </ClCompile>
@@ -220,17 +217,20 @@
     <ClCompile Include="src\tests.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\pendulum.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\buoyancy.cpp">
+      <Filter>src\simulations</Filter>
     </ClCompile>
     <ClCompile Include="src\chaoticPendulum.cpp">
-      <Filter>src</Filter>
+      <Filter>src\simulations</Filter>
     </ClCompile>
     <ClCompile Include="src\mirrorLens.cpp">
-      <Filter>src</Filter>
+      <Filter>src\simulations</Filter>
     </ClCompile>
-    <ClCompile Include="src\buoyancy.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="src\pendulum.cpp">
+      <Filter>src\simulations</Filter>
+    </ClCompile>
+    <ClCompile Include="src\twoBalls.cpp">
+      <Filter>src\simulations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -309,9 +309,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\twoBalls.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\addons\ofxBox2d-master\src\ofxBox2d.h">
@@ -551,22 +548,37 @@
     <ClInclude Include="..\..\..\..\addons\ofxVectorGraphics\libs\CreEPS_Types.hpp">
       <Filter>src\addons\ofxVectorGraphics\libs</Filter>
     </ClInclude>
-    <ClInclude Include="src\catch.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\pendulum.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\chaoticPendulum.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\mirrorLens.h">
-      <Filter>src</Filter>
+    <ClInclude Include="src\twoBallsConstants.h">
+      <Filter>src\constants</Filter>
     </ClInclude>
     <ClInclude Include="src\buoyancy.h">
-      <Filter>src</Filter>
+      <Filter>src\simulations</Filter>
     </ClInclude>
-    <ClInclude Include="src\twoBallsConstants.h">
+    <ClInclude Include="src\catch.hpp">
+      <Filter>src\simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\chaoticPendulum.h">
+      <Filter>src\simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mirrorLens.h">
+      <Filter>src\simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pendulum.h">
+      <Filter>src\simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\twoBalls.h">
+      <Filter>src\simulations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pendulumConstants.h">
+      <Filter>src\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="src\chaoticPendulumConstants.h">
+      <Filter>src\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="src\buoyancyConstants.h">
+      <Filter>src\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mirrorLensConstants.h">
       <Filter>src\constants</Filter>
     </ClInclude>
   </ItemGroup>

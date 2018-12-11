@@ -288,13 +288,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\buoyancy.h" />
+    <ClInclude Include="src\buoyancyConstants.h" />
     <ClInclude Include="src\catch.hpp" />
     <ClInclude Include="src\chaoticPendulum.h" />
+    <ClInclude Include="src\chaoticPendulumConstants.h" />
     <ClInclude Include="src\mirrorLens.h" />
+    <ClInclude Include="src\mirrorLensConstants.h" />
     <ClInclude Include="src\pendulum.h" />
     <ClInclude Include="src\ofApp.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Test|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="src\pendulumConstants.h" />
     <ClInclude Include="src\twoBalls.h" />
     <ClInclude Include="..\..\..\..\addons\ofxBox2d-master\src\ofxBox2d.h" />
     <ClInclude Include="..\..\..\..\addons\ofxBox2d-master\src\ofxBox2dBaseShape.h" />

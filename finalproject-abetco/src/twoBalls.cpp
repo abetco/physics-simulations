@@ -4,14 +4,14 @@ twoBalls::twoBalls() {
 }
 
 void twoBalls::setup() {
-	myFont.load("Cabin-Regular.ttf", 18);
-	ofSetBackgroundColorHex(0xffffff);
+	myFont.load("Cabin-Regular.ttf", TwoBallsConstants::kFontSize);
+	ofSetBackgroundColorHex(TwoBallsConstants::kBackground);
 	box2d_.init();
-	box2d_.setGravity(0, 10);
+	box2d_.setGravity(0, TwoBallsConstants::kGravity);
 	box2d_.createGround();
-	box2d_.setFPS(60.0);
+	box2d_.setFPS(TwoBallsConstants::kFPS);
 	parameters_.setName("Parameters");
-	parameters_.add(x_vel1_.set("X Velocity Ball 1", 10, 1, 100));
+	parameters_.add(x_vel1_.set("X Velocity Ball 1", TwoBallsConstants::kXLeftVelStart, TwoBallsConstants::kXLeftVelLow, TwoBallsConstants::kXLeftVelHigh));
 	parameters_.add(y_vel1_.set("Y Velocity Ball 1", -10, -1, -100));
 	parameters_.add(x_vel2_.set("X Velocity Ball 2", -10, -1, -100));
 	parameters_.add(y_vel2_.set("Y Velocity Ball 2", -10, -1, -100));
