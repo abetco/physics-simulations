@@ -5,6 +5,7 @@
 #include "ofMain.h"
 #include "ofxBox2d.h"
 #include "ofxGui.h"
+#include <pendulumConstants.h>
 #include <math.h> 
 #include <cmath>
 
@@ -52,8 +53,6 @@ public:
 
 private:
 	ofTrueTypeFont myFont;
-	const float kXPivot = 500;
-	const float kYPivot = 120;
 	float start_time_;
 	ofParameter<float> length_, gravity_, angle_;
 	ofxPanel gui_;
