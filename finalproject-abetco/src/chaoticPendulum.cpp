@@ -10,7 +10,7 @@ void chaoticPendulum::setup() {
 	parameters_.add(angle1_.set("Starting Angle 1", ChaoticPendulumConstants::kAngleStart, ChaoticPendulumConstants::kAngleLow, ChaoticPendulumConstants::kAngleHigh1));
 	parameters_.add(length2_.set("String Length 2", ChaoticPendulumConstants::kLengthStart, ChaoticPendulumConstants::kLengthLow, ChaoticPendulumConstants::kLengthHigh));
 	parameters_.add(angle2_.set("Starting Angle 2", ChaoticPendulumConstants::kAngleStart, ChaoticPendulumConstants::kAngleLow, ChaoticPendulumConstants::kAngleHigh2));
-	parameters_.add(gravity_.set("Gravity", ChaoticPendulumConstants::kGravityStart, ChaoticPendulumConstants::kGravityLow, ChaoticPendulumConstants::kGravityHigh)));
+	parameters_.add(gravity_.set("Gravity", ChaoticPendulumConstants::kGravityStart, ChaoticPendulumConstants::kGravityLow, ChaoticPendulumConstants::kGravityHigh));
 	gui_.setup(parameters_);
 	start_time_ = 0;
 }

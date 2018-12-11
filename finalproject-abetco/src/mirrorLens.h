@@ -1,9 +1,13 @@
 #ifndef MIRROR_LENS_H
 #define MIRROR_LENS_H
+#define _USE_MATH_DEFINES
 
 #include "ofMain.h"
 #include "ofxBox2d.h"
 #include "ofxGui.h"
+#include <math.h> 
+#include <cmath>
+#include <mirrorLensConstants.h>
 
 class mirrorLens {
 public:
@@ -39,8 +43,6 @@ public:
 	float getHeight();
 
 private:
-	float kCenterX = 800;
-	float kCenterY = 384;
 	ofParameter<float> focal_length_, distance_, height_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;
