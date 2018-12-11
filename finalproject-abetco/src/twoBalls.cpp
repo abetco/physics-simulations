@@ -12,19 +12,19 @@ void twoBalls::setup() {
 	box2d_.setFPS(TwoBallsConstants::kFPS);
 	parameters_.setName("Parameters");
 	parameters_.add(x_vel1_.set("X Velocity Ball 1", TwoBallsConstants::kXLeftVelStart, TwoBallsConstants::kXLeftVelLow, TwoBallsConstants::kXLeftVelHigh));
-	parameters_.add(y_vel1_.set("Y Velocity Ball 1", -10, -1, -100));
-	parameters_.add(x_vel2_.set("X Velocity Ball 2", -10, -1, -100));
-	parameters_.add(y_vel2_.set("Y Velocity Ball 2", -10, -1, -100));
-	parameters_.add(radius1_.set("Radius Ball 1", 15, 10, 100));
-	parameters_.add(radius2_.set("Radius Ball 2", 15, 10, 100));
+	parameters_.add(y_vel1_.set("Y Velocity Ball 1", TwoBallsConstants::kYVelStart, TwoBallsConstants::kYVelLow, TwoBallsConstants::kYVelHigh));
+	parameters_.add(x_vel2_.set("X Velocity Ball 2", TwoBallsConstants::kXRightVelStart, TwoBallsConstants::kXRightVelLow, TwoBallsConstants::kXRightVelHigh));
+	parameters_.add(y_vel2_.set("Y Velocity Ball 2", TwoBallsConstants::kYVelStart, TwoBallsConstants::kYVelLow, TwoBallsConstants::kYVelHigh));
+	parameters_.add(radius1_.set("Radius Ball 1", TwoBallsConstants::kRadiusStart, TwoBallsConstants::kRadiusLow, TwoBallsConstants::kRadiusHigh));
+	parameters_.add(radius2_.set("Radius Ball 2", TwoBallsConstants::kRadiusStart, TwoBallsConstants::kRadiusLow, TwoBallsConstants::kRadiusHigh));
 	gui_.setup(parameters_);
 	auto circle = std::make_shared<ofxBox2dCircle>();
-	circle.get()->setPhysics(3.0, 0.53, 0.9);
+	circle.get()->setPhysics(TwoBallsConstants::kDensity, TwoBallsConstants::kFloat, TwoBallsConstants::kFriction);
 	circle.get()->setup(box2d_.getWorld(), radius1_, ofGetHeight() - radius1_, radius1_);
 	circle.get()->setVelocity(x_vel1_, y_vel1_);
 	circles_.push_back(circle);
 	circle = std::make_shared<ofxBox2dCircle>();
-	circle.get()->setPhysics(3.0, 0.53, 0.9);
+	circle.get()->setPhysics(TwoBallsConstants::kDensity, TwoBallsConstants::kFloat, TwoBallsConstants::kFriction);
 	circle.get()->setup(box2d_.getWorld(), ofGetWidth() - radius2_, ofGetHeight() - radius2_, radius2_);
 	circle.get()->setVelocity(x_vel2_, y_vel2_);
 	circles_.push_back(circle);
@@ -38,13 +38,13 @@ void twoBalls::draw() {
 	gui_.draw();
 	for (int i = 0; i < circles_.size(); i++) {
 		ofFill();
-		ofSetHexColor(0xb3ffe0);
+		ofSetHexColor(TwoBallsConstants::kCircleColor);
 		circles_[i].get()->draw();
 	}
 
 	box2d_.drawGround();
 
-	ofSetHexColor(0x000000);
+	ofSetHexColor(TwoBallsConstants::kTextColor);
 	string info = "";
 	info += "Use the sliders to adjust the parameters!\n";
 	info += "Press [r] to reset!\n";
