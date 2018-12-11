@@ -25,13 +25,12 @@ void mirrorLens::draw() {
 }
 
 void mirrorLens::drawSetup() {
-	ofPolyline line;
-	ofPoint pt;
-	pt.set(MirrorLensConstants::kCenterX, MirrorLensConstants::kCenterY);
-	line.addVertex(pt);
-	pt.set(0, MirrorLensConstants::kCenterY);
-	line.addVertex(pt);
-	line.draw();
+	drawMirror();
+	drawFocus();
+	drawAxis();
+}
+
+void mirrorLens::drawMirror() {
 	ofPath path;
 	path.arc(MirrorLensConstants::kCenterX - 2 * focal_length_, MirrorLensConstants::kCenterY, 0, 2 * focal_length_, 2 * focal_length_, -45, 45);
 	path.setFilled(false);
@@ -46,6 +45,20 @@ void mirrorLens::drawSetup() {
 	cover.setStrokeWidth(1);
 	cover.setStrokeHexColor(0xffffff);
 	cover.draw();
+}
+
+void mirrorLens::drawFocus() {
+	ofDrawCircle(MirrorLensConstants::kCenterX - focal_length_, MirrorLensConstants::kCenterY, 2);
+}
+
+void mirrorLens::drawAxis() {
+	ofPolyline line;
+	ofPoint pt;
+	pt.set(ofGetWindowWidth(), MirrorLensConstants::kCenterY);
+	line.addVertex(pt);
+	pt.set(0, MirrorLensConstants::kCenterY);
+	line.addVertex(pt);
+	line.draw();
 }
 
 void mirrorLens::drawObject() {

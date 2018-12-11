@@ -19,6 +19,13 @@ public:
 	/*Draw the setup of the mirror simulation, which includes the mirror itself and the line at which the object and image are on*/
 	void drawSetup();
 
+	/*Draws the mirror*/
+	void drawMirror();
+	/*Draws the focus*/
+	void drawFocus();
+	/*Draws the center axis*/
+	void drawAxis();
+
 	/*Draws the object*/
 	void drawObject();
 
