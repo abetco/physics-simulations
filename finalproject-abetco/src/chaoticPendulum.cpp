@@ -69,7 +69,7 @@ void chaoticPendulum::drawObj(float xpos, float ypos, float xpivot, float ypivot
 void chaoticPendulum::drawPeriod(float period) {
 	string pend_period = std::to_string(period);
 	pend_period = "Period = 2pi * sqrt(L/g) = " + pend_period;
-	myFont.drawString(pend_period, ofGetWidth() / 2 - 50, 100);
+	myFont.drawString(pend_period, ofGetWidth() / 2 - 150, 100);
 }
 
 void chaoticPendulum::keyPressed(int key) {

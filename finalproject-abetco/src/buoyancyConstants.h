@@ -13,6 +13,7 @@ namespace BuoyancyConstants {
 	const float kDensityStart = 1;
 	const float kDensityHigh = 1.5;
 	/*Setup*/
+	const int kFontSize = 18;
 	const float kGravity = 10;
 	const float kFPS = 60;
 	/*Box Physics*/

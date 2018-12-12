@@ -23,6 +23,8 @@ public:
 	void drawMirror();
 	/*Draws the center axis*/
 	void drawAxis();
+	/*Draws the instructions*/
+	void drawInstructions();
 
 	/*Draws the object*/
 	void drawObject();
@@ -53,6 +55,7 @@ public:
 	float getHeight();
 
 private:
+	ofTrueTypeFont myFont;
 	ofParameter<float> focal_length_, distance_, height_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;

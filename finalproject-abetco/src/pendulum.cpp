@@ -61,8 +61,8 @@ void Pendulum::drawObj(float xpos, float ypos) {
 
 void Pendulum::drawPeriod(float period) {
 	string pend_period = std::to_string(period);
-	pend_period = "Period = 2*pi*sqrt(L/g) = " + pend_period;
-	myFont.drawString(pend_period, ofGetWidth() / 2 - 50, 100);
+	pend_period = "Period = 2pi*sqrt(L/g) = " + pend_period;
+	myFont.drawString(pend_period, ofGetWidth() / 2 - 150, 100);
 }
 
 void Pendulum::keyPressed(int key) {

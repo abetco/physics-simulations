@@ -11,10 +11,14 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void drawSetup();
+	void drawBox();
+	void drawWater();
 	void keyPressed(int key);
 	
 	float calculateBuoyancyForce();
 
+	ofTrueTypeFont myFont;
 	ofParameter<float> width_,  height_, density_;
 	ofxPanel gui_;
 	ofParameterGroup parameters_;

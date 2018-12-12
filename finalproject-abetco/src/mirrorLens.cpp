@@ -4,6 +4,7 @@ mirrorLens::mirrorLens() {
 }
 
 void mirrorLens::setup() {
+	myFont.load("Cabin-Regular.ttf", MirrorLensConstants::kFontSize);
 	parameters_.setName("Parameters");
 	parameters_.add(focal_length_.set("Focal Length", MirrorLensConstants::kFocalStart, MirrorLensConstants::KFocalLow, MirrorLensConstants::kFocalHigh));
 	parameters_.add(distance_.set("Distance", MirrorLensConstants::kDistanceStart, MirrorLensConstants::kDistanceLow, MirrorLensConstants::kDistanceHigh));
@@ -28,6 +29,15 @@ void mirrorLens::draw() {
 void mirrorLens::drawSetup() {
 	drawMirror();
 	drawAxis();
+	drawInstructions();
+}
+
+void mirrorLens::drawInstructions() {
+	string info = "";
+	info += "Use the sliders to adjust the parameters!\n";
+	myFont.drawString(info, 10, ofGetHeight() / 3);
+	string title = "Mirror Simulation";
+	myFont.drawString(title, ofGetWidth() / 2 - 100, 50);
 }
 
 void mirrorLens::drawMirror() {

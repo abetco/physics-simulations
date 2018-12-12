@@ -2,6 +2,8 @@
 #define MIRROR_LENS_CONSTANTS
 
 namespace MirrorLensConstants {
+	/*Setup*/
+	const float kFontSize = 18;
 	/*Parameters*/
 	const float KFocalLow = -300; 
 	const float kFocalStart = 100;
@@ -15,7 +17,7 @@ namespace MirrorLensConstants {
 	/*Mirror Location*/
 	const float kCenterX = 600;
 	const float kCenterY = 384;
-	/*Drawing Constatns*/
+	/*Drawing Constants*/
 	const int kArcRes = 200;
 	const int kColorBlack = 0x000000;
 	const int kColorWhite = 0xffffff;

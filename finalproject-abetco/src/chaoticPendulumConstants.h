@@ -6,8 +6,8 @@ namespace ChaoticPendulumConstants {
 	const int kFontSize = 18;
 	/*Parameters*/
 	const float kLengthLow = 100;
-	const float kLengthStart = 400;
-	const float kLengthHigh = 700;
+	const float kLengthStart = 200;
+	const float kLengthHigh = 400;
 	const float kGravityLow = 1;
 	const float kGravityStart = 10;
 	const float kGravityHigh = 100;

@@ -1,6 +1,7 @@
 #include "buoyancy.h"
 
 void Buoyancy::setup() {
+	myFont.load("Cabin-Regular.ttf", BuoyancyConstants::kFontSize);
 	parameters_.setName("Parameters");
 	parameters_.add(height_.set("Height of Box", BuoyancyConstants::kHeightStart, BuoyancyConstants::kHeightLow, BuoyancyConstants::kHeightHigh));
 	parameters_.add(width_.set("Width of Box", BuoyancyConstants::kWidthStart, BuoyancyConstants::kWidthLow, BuoyancyConstants::kWidthHigh));
@@ -20,11 +21,30 @@ void Buoyancy::update() {
 
 void Buoyancy::draw() {
 	gui_.draw();
+	drawWater();
+	drawBox();
+	drawSetup();
+}
+
+void Buoyancy::drawSetup() {
+	ofSetHexColor(BuoyancyConstants::kBoxColor);
+	string info = "";
+	info += "Use the sliders to adjust the parameters!\n";
+	info += "Press [r] to reset!\n";
+	myFont.drawString(info, 10, ofGetHeight() / 3);
+	string title = "Buoyancy Simulation";
+	myFont.drawString(title, ofGetWidth() / 2 - 100, 50);
+}
+
+void Buoyancy::drawBox() {
+	ofSetHexColor(BuoyancyConstants::kBoxColor);
+	box.draw();
+}
+
+void Buoyancy::drawWater() {
 	ofSetHexColor(BuoyancyConstants::kWaterColor);
 	ofFill();
 	ofDrawRectangle(0, ofGetWindowHeight() * BuoyancyConstants::kWaterLevelHeight, ofGetWindowWidth(), ofGetWindowHeight() * (1 - BuoyancyConstants::kWaterLevelHeight));
-	ofSetHexColor(BuoyancyConstants::kBoxColor);
-	box.draw();
 }
 
 void Buoyancy::keyPressed(int key) {
