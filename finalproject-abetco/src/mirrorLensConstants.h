@@ -13,7 +13,7 @@ namespace MirrorLensConstants {
 	const float kHeightStart = 100;
 	const float kHeightHigh = 150;
 	/*Mirror Location*/
-	const float kCenterX = 800;
+	const float kCenterX = 600;
 	const float kCenterY = 384;
 }
 

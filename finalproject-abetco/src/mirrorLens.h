@@ -21,8 +21,6 @@ public:
 
 	/*Draws the mirror*/
 	void drawMirror();
-	/*Draws the focus*/
-	void drawFocus();
 	/*Draws the center axis*/
 	void drawAxis();
 
@@ -34,6 +32,9 @@ public:
 	@param: image_height is how tall the image is*/
 	void drawImage(float image_distance, float image_height);
 
+	/**/
+	void drawRays(float image_distance, float image_height);
+
 	/*Calculates the distance of the image in the mirror
 	@return: image distance, where a positive distance means the image is to the left of the mirror, on the same side of the object*/
 	float calculateImageDistance();
@@ -42,6 +43,8 @@ public:
 	@param: image_distance is the distance of the image from the mirror
 	@return: the image height which is how tall the image is*/
 	float calculateImageHeight(float image_distance);
+
+	float calculateMirrorPoint();
 
 	mirrorLens();
 
