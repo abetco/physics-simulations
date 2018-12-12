@@ -17,31 +17,38 @@ public:
 	void keyPressed(int key);
 
 	float calculatePeriod();
-	/*float calculateTension();*/
 
-	/*Calculate the x position of the pendulum object based on the angle of the string with the vertical
+	/*Calculate the x position of the pendulum object based on the angle of the string with the vertical and pivot position
 	@param angle: angle of the pendulum
+	@param xpivot: x coordinate of the pivot
+	@param length: length of the pendulum string
 	@return the x position of the pendulum object*/
 	float calculateXPos(float angle, float xpivot, float length);
 
-	/*Calculate the y position of the pendulum object based on the angle of the string with the vertical
+	/*Calculate the y position of the pendulum object based on the angle of the string with the vertical and pivot position
 	@param angle: angle of the pendulum
+	@param ypivot: y coordinate of the pivot
+	@param length: length of the pendulum string
 	@return the y position of the pendulum object*/
 	float calculateYPos(float angle, float ypivot, float length);
 
 	/*Calculate the angle of the pendulum object based on the time elapsed
 	@param time: time passed since beginning of simulation or reset
-	@return the angle of the pendulum with the verticle
+	@param angle: initial angle of the pendulm
+	@param length: length of the pendulum string
+	@return the angle of the pendulum with the vertical
 	*/
 	float calculateAngle(float time, float angle, float length);
 
 	/*Draws the string and circle representing the pendulum
 	@param xpos: X coordinate of the pendulum object
 	@param ypos: Y coordinate of the pendulum object
+	@param xpivot: X coordinate of the pivot
+	@param ypivot: Y coordinate of the pivot
 	*/
 	void drawObj(float xpos, float ypos, float xpivot, float ypivot);
 
-	/*void drawTension(float xpos, float ypos);*/
+	/*Draws the period formula and time*/
 	void drawPeriod(float period);
 
 	chaoticPendulum();

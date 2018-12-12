@@ -11,11 +11,17 @@ public:
 	void setup();
 	void update();
 	void draw();
-	void drawSetup();
-	void drawBox();
-	void drawWater();
 	void keyPressed(int key);
+
+	/*Draws the instructions and title*/
+	void drawSetup();
+	/*Draws the box*/
+	void drawBox();
+	/*Draws the water*/
+	void drawWater();
 	
+	/*Calculates the buoyancy force based on how much of the box is in the water
+	@return a float of the buoyancy force to be exerted on the box*/
 	float calculateBuoyancyForce();
 
 	ofTrueTypeFont myFont;
