@@ -32,18 +32,21 @@ void mirrorLens::drawSetup() {
 
 void mirrorLens::drawMirror() {
 	ofPath path;
-	path.arc(MirrorLensConstants::kCenterX - 2 * focal_length_, MirrorLensConstants::kCenterY, 0, 2 * focal_length_, 2 * focal_length_, -60, 60);
+	path.arc(MirrorLensConstants::kCenterX - 2 * focal_length_, MirrorLensConstants::kCenterY, 0, 2 * focal_length_, 
+		2 * focal_length_, -MirrorLensConstants::kMirrorAngle, MirrorLensConstants::kMirrorAngle);
 	path.setFilled(false);
-	path.setStrokeWidth(1);
-	path.setStrokeHexColor(0x000000);
-	path.setArcResolution(200);
+	path.setStrokeWidth(MirrorLensConstants::kStrokeWidth);
+	path.setStrokeHexColor(MirrorLensConstants::kColorBlack);
+	path.setArcResolution(MirrorLensConstants::kArcRes);
 	path.draw();
 	ofPath cover;
 	cover.moveTo(MirrorLensConstants::kCenterX - 2 * focal_length_, MirrorLensConstants::kCenterY);
-	cover.lineTo(MirrorLensConstants::kCenterX - 2 * focal_length_ + 2 * focal_length_ * cos(60 * M_PI / 180), MirrorLensConstants::kCenterY - 2 * focal_length_ * sin(60 * M_PI / 180));
+	cover.lineTo(MirrorLensConstants::kCenterX - 2 * focal_length_ + 2 * focal_length_ * 
+		cos(MirrorLensConstants::kMirrorAngle * M_PI / 180), 
+		MirrorLensConstants::kCenterY - 2 * focal_length_ * sin(MirrorLensConstants::kMirrorAngle * M_PI / 180));
 	cover.setFilled(false);
-	cover.setStrokeWidth(1);
-	cover.setStrokeHexColor(0xffffff);
+	cover.setStrokeWidth(MirrorLensConstants::kStrokeWidth);
+	cover.setStrokeHexColor(MirrorLensConstants::kColorWhite);
 	cover.draw();
 }
 
@@ -65,7 +68,7 @@ void mirrorLens::drawObject() {
 	pt.set(MirrorLensConstants::kCenterX - distance_, MirrorLensConstants::kCenterY - height_);
 	line.addVertex(pt);
 	line.draw();
-	ofDrawCircle(MirrorLensConstants::kCenterX - distance_, MirrorLensConstants::kCenterY - height_, 5);
+	ofDrawCircle(MirrorLensConstants::kCenterX - distance_, MirrorLensConstants::kCenterY - height_, MirrorLensConstants::kCircleRad);
 }
 
 void mirrorLens::drawImage(float image_distance, float image_height) {
@@ -76,7 +79,7 @@ void mirrorLens::drawImage(float image_distance, float image_height) {
 	pt.set(MirrorLensConstants::kCenterX - image_distance, MirrorLensConstants::kCenterY - image_height);
 	line.addVertex(pt);
 	line.draw();
-	ofDrawCircle(MirrorLensConstants::kCenterX - image_distance, MirrorLensConstants::kCenterY - image_height, 5);
+	ofDrawCircle(MirrorLensConstants::kCenterX - image_distance, MirrorLensConstants::kCenterY - image_height, MirrorLensConstants::kCircleRad);
 }
 
 void mirrorLens::drawRays(float image_distance, float image_height) {

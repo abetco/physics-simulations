@@ -15,6 +15,14 @@ namespace MirrorLensConstants {
 	/*Mirror Location*/
 	const float kCenterX = 600;
 	const float kCenterY = 384;
+	/*Drawing Constatns*/
+	const int kArcRes = 200;
+	const int kColorBlack = 0x000000;
+	const int kColorWhite = 0xffffff;
+	const int kStrokeWidth = 1;
+	const float kMirrorAngle = 60;
+	const int kCircleRad = 5;
+
 }
 
 #endif

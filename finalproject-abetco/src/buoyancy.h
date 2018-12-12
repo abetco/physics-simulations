@@ -14,6 +14,9 @@ public:
 	
 	float calculateBuoyancyForce();
 
+	ofParameter<float> width_,  height_, density_;
+	ofxPanel gui_;
+	ofParameterGroup parameters_;
 	ofxBox2d box2d;
 	ofxBox2dRect box;
 };
