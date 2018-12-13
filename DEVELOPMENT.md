@@ -9,7 +9,7 @@ Added test cases to test simple helper functions and instantiating variable valu
 Created 3 new Simulations: Chaotic Pendulum Simulation, Buoyancy Simulation, Mirror Lens Simulation.  
 Chaotic Pendulum builds upon the first pendulum simulation, just adding another pendulum to the end of the original one.  
 Buoyancy Simulation is a work in progress, but is intended to use the ofxbox2d library to create simulation of a box dropping in water.  
-The Mirror Lens Simulation is intended to display what happens to the image in a mirror or lens when the object height or distance or the focal length is changed.
+The Mirror Lens Simulation is intended to display what happens to the image in a mirror or lens when the object height or distance or the focal length is changed.  
 **Week 4 Progress**  
 All simulations have been finished.  
 The Buoyancy Simulation now works as intended, and the Mirror Simulation now has ray tracing to show the correlation between the object and the image.  
