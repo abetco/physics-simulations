@@ -20,6 +20,7 @@ namespace MirrorLensConstants {
 	/*Drawing Constants*/
 	const int kArcRes = 200;
 	const int kColorBlack = 0x000000;
+	const int kColorYellow = 0xffff00;
 	const int kColorWhite = 0xffffff;
 	const int kStrokeWidth = 1;
 	const float kMirrorAngle = 60;

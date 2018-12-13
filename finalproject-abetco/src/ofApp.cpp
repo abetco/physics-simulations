@@ -12,7 +12,7 @@ void ofApp::setup(){
 	gui.add(pendSimButton.setup("Pendulum Simulation"));
 	gui.add(cPendSimButton.setup("Chaotic Pendulum Simulation"));
 	gui.add(buoSimButton.setup("Buoyancy Simulation"));
-	gui.add(mirLensSimButton.setup("Mirror Lens Simulation"));
+	gui.add(mirLensSimButton.setup("Mirror Simulation"));
 	gui.setPosition(ofGetWindowWidth() - 250, 0);
 
 	sim = TwoBalls;

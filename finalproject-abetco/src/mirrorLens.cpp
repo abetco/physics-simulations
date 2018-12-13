@@ -5,6 +5,7 @@ mirrorLens::mirrorLens() {
 
 void mirrorLens::setup() {
 	myFont.load("Cabin-Regular.ttf", MirrorLensConstants::kFontSize);
+	draw_rays_ = false;
 	parameters_.setName("Parameters");
 	parameters_.add(focal_length_.set("Focal Length", MirrorLensConstants::kFocalStart, MirrorLensConstants::KFocalLow, MirrorLensConstants::kFocalHigh));
 	parameters_.add(distance_.set("Distance", MirrorLensConstants::kDistanceStart, MirrorLensConstants::kDistanceLow, MirrorLensConstants::kDistanceHigh));
@@ -18,12 +19,15 @@ void mirrorLens::update() {
 
 void mirrorLens::draw() {
 	gui_.draw();
+	ofSetHexColor(MirrorLensConstants::kColorBlack);
 	drawSetup();
 	drawObject();
 	float image_distance = calculateImageDistance();
 	float image_height = calculateImageHeight(image_distance);
 	drawImage(image_distance, image_height);
-	drawRays(image_distance, image_height);
+	if (draw_rays_) {
+		drawRays(image_distance, image_height);
+	}
 }
 
 void mirrorLens::drawSetup() {
@@ -35,7 +39,8 @@ void mirrorLens::drawSetup() {
 void mirrorLens::drawInstructions() {
 	string info = "";
 	info += "Use the sliders to adjust the parameters!\n";
-	myFont.drawString(info, 10, ofGetHeight() / 3);
+	info += "Press the [f] key if you would like to display the rays\n";
+	myFont.drawString(info, 10, ofGetHeight() / 4 - 50);
 	string title = "Mirror Simulation";
 	myFont.drawString(title, ofGetWidth() / 2 - 100, 50);
 }
@@ -96,6 +101,7 @@ void mirrorLens::drawRays(float image_distance, float image_height) {
 	float mirror_distance = calculateMirrorPoint();
 	ofPolyline line;
 	ofPoint pt;
+	ofSetHexColor(MirrorLensConstants::kColorYellow);
 	pt.set(MirrorLensConstants::kCenterX - distance_, MirrorLensConstants::kCenterY - height_);
 	line.addVertex(pt);
 	if (focal_length_ > 0) {
@@ -105,14 +111,13 @@ void mirrorLens::drawRays(float image_distance, float image_height) {
 		pt.set(MirrorLensConstants::kCenterX - 2 * focal_length_ - mirror_distance, MirrorLensConstants::kCenterY - height_);
 	}
 	line.addVertex(pt);
+	pt.set(MirrorLensConstants::kCenterX - image_distance, MirrorLensConstants::kCenterY - image_height);
+	line.addVertex(pt);
 	line.draw();
 	line.clear();
-	if (focal_length_ > 0) {
-		pt.set(MirrorLensConstants::kCenterX - 2 * focal_length_ + mirror_distance, MirrorLensConstants::kCenterY - height_);
-	}
-	else {
-		pt.set(MirrorLensConstants::kCenterX - 2 * focal_length_ - mirror_distance, MirrorLensConstants::kCenterY - height_);
-	}
+	pt.set(MirrorLensConstants::kCenterX - distance_, MirrorLensConstants::kCenterY - height_);
+	line.addVertex(pt);
+	pt.set(MirrorLensConstants::kCenterX, MirrorLensConstants::kCenterY);
 	line.addVertex(pt);
 	pt.set(MirrorLensConstants::kCenterX - image_distance, MirrorLensConstants::kCenterY - image_height);
 	line.addVertex(pt);
@@ -124,8 +129,9 @@ float mirrorLens::calculateMirrorPoint() {
 }
 
 void mirrorLens::keyPressed(int key) {
-	
-	
+	if (key == 'f') {
+		draw_rays_ = true;
+	}
 }
 
 float mirrorLens::calculateImageDistance() {

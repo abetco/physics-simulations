@@ -59,6 +59,7 @@ public:
 	float getHeight();
 
 private:
+	bool draw_rays_;
 	ofTrueTypeFont myFont;
 	ofParameter<float> focal_length_, distance_, height_;
 	ofxPanel gui_;
