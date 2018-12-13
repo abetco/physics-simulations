@@ -16,8 +16,9 @@ public:
 	void draw();
 	void keyPressed(int key);
 
+	/*Calculates the period of the first pendulum based on the parameters
+	@param: period of the pendulum*/
 	float calculatePeriod();
-	/*float calculateTension();*/
 
 	/*Calculate the x position of the pendulum object based on the angle of the string with the vertical
 	@param angle: angle of the pendulum

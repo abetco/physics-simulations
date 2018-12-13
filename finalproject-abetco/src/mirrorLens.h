@@ -34,7 +34,9 @@ public:
 	@param: image_height is how tall the image is*/
 	void drawImage(float image_distance, float image_height);
 
-	/**/
+	/*Draws the rays of light which shows the correlation between object and image
+	@param image_distance: distance of the image from the mirror
+	@param image_height: height of the image above the axis*/
 	void drawRays(float image_distance, float image_height);
 
 	/*Calculates the distance of the image in the mirror
@@ -46,6 +48,8 @@ public:
 	@return: the image height which is how tall the image is*/
 	float calculateImageHeight(float image_distance);
 
+	/*Calculates the point on the mirror at which the ray of light parallel to the axis strikes
+	@return the x coordinate of the point on the mirror in which the ray strikes*/
 	float calculateMirrorPoint();
 
 	mirrorLens();
