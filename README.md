@@ -1,4 +1,4 @@
-# FinalProject: A Series of Physics Simulations  
+A Series of Physics Simulations  
 This repository contains the following simulations: 
 * Two Balls Simulation
 * Pendulum Simulation
